@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        UIKitViewControllerWrapper()
+        iOS_UIKit_ViewControllerWrapper()
             .edgesIgnoringSafeArea(.all) /// Ignore safe area to extend the background color to the entire screen
     }
 }
@@ -17,7 +17,7 @@ struct ContentView: View {
 // Before iOS 17, use this syntax for preview UIKit view controller
 struct UIKitViewControllerWrapper_Previews: PreviewProvider {
     static var previews: some View {
-        UIKitViewControllerWrapper()
+        iOS_UIKit_ViewControllerWrapper()
     }
 }
 

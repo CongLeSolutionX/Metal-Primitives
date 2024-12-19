@@ -5,12 +5,12 @@
 //  Created by Cong Le on 12/19/24.
 //
 
-
+#if canImport(UIKit)
 import SwiftUI
 import UIKit
 
 // UIViewControllerRepresentable implementation
-struct UIKitViewControllerWrapper: UIViewControllerRepresentable {
+struct iOS_UIKit_ViewControllerWrapper: UIViewControllerRepresentable {
     typealias UIViewControllerType = MyUIKitViewController
     
     // Required methods implementation
@@ -24,11 +24,12 @@ struct UIKitViewControllerWrapper: UIViewControllerRepresentable {
     }
 }
 
-// Example UIKit view controller
-class MyUIKitViewController: UIViewController {
+// Example iOS UIKit view controller
+class MyUIKitViewController: MySwiftViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBlue
-        // Additional setup
+        view.backgroundColor = .systemYellow
     }
 }
+
+#endif
