@@ -37,6 +37,7 @@ struct MyAppApp: App {
             iOS_UIKit_ViewControllerWrapper()
             #elseif os(macOS)
             // macOS-specific implementation (e.g., AppKit calls)
+            NSMetalPlainView()
             #endif
         }
     }
