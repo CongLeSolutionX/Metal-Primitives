@@ -34,12 +34,14 @@ struct MyAppApp: App {
             // iOS-specific implementation (e.g., UIKit calls)
             
             // Display iOS views from different sources on the same screen
+            Metal3DView()
             iOS_UIKit_Metal2DView()
             iOS_UIKit_MetalPlainView()
             iOS_UIKit_ViewControllerWrapper()
             iOS_SwiftUI_RootContentView()
             #elseif os(macOS)
             // macOS-specific implementation (e.g., AppKit calls)
+            Metal3DView()
             NSMetal2DView()
             NSMetalPlainView()
             #endif
