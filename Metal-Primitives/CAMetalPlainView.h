@@ -4,13 +4,24 @@
 //
 //  Created by Cong Le on 12/19/24.
 //
-#import <UIKit/UIKit.h>
+//
+
+#import <TargetConditionals.h>
+
+#if TARGET_OS_OSX
+    #import <AppKit/AppKit.h>
+    typedef NSView PlatformView;
+#else
+    #import <UIKit/UIKit.h>
+    typedef UIView PlatformView;
+#endif
+
 #import <Metal/Metal.h>
 #import <QuartzCore/CAMetalLayer.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CAMetalPlainView : UIView
+@interface CAMetalPlainView : PlatformView
 
 - (instancetype)initWithDevice:(id<MTLDevice>)device
                          queue:(id<MTLCommandQueue>)queue;
@@ -21,4 +32,3 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 NS_ASSUME_NONNULL_END
-
