@@ -1,5 +1,5 @@
 //
-//  MetalPlainViewControllerRepresentable.swift
+//  ObjCMetalPlainViewControllerRepresentable.swift
 //  Metal-Primitives
 //
 //  Created by Cong Le on 12/19/24.
