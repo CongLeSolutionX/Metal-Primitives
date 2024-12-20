@@ -14,7 +14,7 @@ import MetalKit
 // MARK: - A Plain Metal View
 /// Source: https://github.com/dehesa/sample-metal/blob/main/Metal%20By%20Example/Clear%20Screen/MetalView.swift
 /// Simple passthrough instance exposing the custom `NSView` containing the `CAMetalLayer`.
-struct NSMetalPlainView: NSViewRepresentable {
+struct NSMetalPlainViewRepresentable: NSViewRepresentable {
   func makeNSView(context: Context) -> CAMetalPlainView {
     let device = MTLCreateSystemDefaultDevice()!
     let queue = device.makeCommandQueue()!.configure { $0.label = .identifier("queue") }
@@ -26,7 +26,7 @@ struct NSMetalPlainView: NSViewRepresentable {
 // MARK: - A Metal 2D View
 /// Source: https://github.com/dehesa/sample-metal/blob/main/Metal%20By%20Example/Clear%20Screen/MetalView.swift
 /// Simple passthrough instance exposing the custom `NSView` containing the `CAMetalLayer`.
-struct NSMetal2DView: NSViewRepresentable {
+struct NSMetal2DViewRepresentable: NSViewRepresentable {
   func makeNSView(context: Context) -> CAMetal2DView {
     let device = MTLCreateSystemDefaultDevice()!
     let queue = device.makeCommandQueue()!.configure { $0.label = .identifier("queue") }
@@ -37,7 +37,7 @@ struct NSMetal2DView: NSViewRepresentable {
 }
 // MARK: - A 3D Metal View
 /// Source: https://github.com/dehesa/sample-metal/blob/main/Metal%20By%20Example/Drawing%20in%203D/MetalView.swift
-struct Metal3DView: NSViewRepresentable {
+struct Metal3DViewRepresentable: NSViewRepresentable {
   /// Simple passthrough instance exposing the custom `NSView` containing the `CAMetalLayer`.
   func makeNSView(context: Context) -> CAMetal3DView {
     let renderer = context.coordinator
@@ -48,7 +48,7 @@ struct Metal3DView: NSViewRepresentable {
 }
 // MARK: - A Metal View with Lighting
 /// Source: https://github.com/dehesa/sample-metal/blob/main/Metal%20By%20Example/Lighting/MetalView.swift
-struct MetalLightingView: NSViewRepresentable {
+struct MetalLightingViewRepresentable: NSViewRepresentable {
   func makeNSView(context: Context) -> MTKView {
     let renderer = context.coordinator
     return MTKView(frame: .zero, device: renderer.device).configure {
@@ -63,7 +63,7 @@ struct MetalLightingView: NSViewRepresentable {
 }
 // MARK: - A Metal View with Texture
 /// Source: https://github.com/dehesa/sample-metal/blob/main/Metal%20By%20Example/Texturing/MetalView.swift
-struct MetalTexturingView: NSViewRepresentable {
+struct MetalTexturingViewRepresentable: NSViewRepresentable {
   func makeNSView(context: Context) -> MTKView {
     let renderer = context.coordinator
     return MTKView(frame: .zero, device: renderer.device).configure {

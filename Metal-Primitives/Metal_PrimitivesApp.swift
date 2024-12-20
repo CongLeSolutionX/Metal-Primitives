@@ -45,11 +45,11 @@ struct MetalPrimitivesApp: App {
             #elseif os(macOS)
             // macOS-specific implementation (e.g., AppKit calls)
             //macOS_SwiftUI_RootContentView()
-            MetalTexturingView()
-            MetalLightingView()
-            Metal3DView()
-            NSMetal2DView()
-            NSMetalPlainView()
+            MetalTexturingViewRepresentable()
+            MetalLightingViewRepresentable()
+            Metal3DViewRepresentable()
+            NSMetal2DViewRepresentable()
+            NSMetalPlainViewRepresentable()
             #endif
         }
     }

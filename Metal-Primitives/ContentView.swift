@@ -36,7 +36,7 @@ struct iOSUIKitViewControllerWrapper_Previews: PreviewProvider {
 #elseif os(macOS)
 struct macOS_SwiftUI_RootContentView: View {
     var body: some View {
-        UIKitWrapper_ObjectiveMetalPlainViewControllerRepresentable()
+        MetalPlainViewControllerRepresentable()
             .edgesIgnoringSafeArea(.all) // Optional: Make the view full-screen
     }
 }
@@ -44,19 +44,15 @@ struct macOS_SwiftUI_RootContentView: View {
 struct NSMetalPlainViewWrapper_Previews: PreviewProvider {
     static var previews: some View {
         //macOS_SwiftUI_RootContentView()
-        MetalTexturingView()
-        MetalLightingView()
-        Metal3DView()
-        NSMetal2DView()
-        NSMetalPlainView()
+        MetalTexturingViewRepresentable()
+        MetalLightingViewRepresentable()
+        Metal3DViewRepresentable()
+        NSMetal2DViewRepresentable()
+        NSMetalPlainViewRepresentable()
     }
 }
 
-#Preview("NS Metal Views") {
-    MetalTexturingView()
-    MetalLightingView()
-    Metal3DView()
-    NSMetal2DView()
-    NSMetalPlainView()
+#Preview("macOS_SwiftUI_RootContentView") {
+    // macOS_SwiftUI_RootContentView() /// This preview works but slow down the cnavas on my laptop, so not reconmended
 }
 #endif
