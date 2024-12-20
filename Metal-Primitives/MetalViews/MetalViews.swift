@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Metal
+import MetalKit
 
 
 #if os(macOS)
@@ -45,6 +46,21 @@ struct Metal3DView: NSViewRepresentable {
 
   func updateNSView(_ lowlevelView: CAMetal3DView, context: Context) {}
 }
+// MARK: - A Metal View with Lighting
+/// Source: https://github.com/dehesa/sample-metal/blob/main/Metal%20By%20Example/Lighting/MetalView.swift
+struct MetalLightingView: NSViewRepresentable {
+  func makeNSView(context: Context) -> MTKView {
+    let renderer = context.coordinator
+    return MTKView(frame: .zero, device: renderer.device).configure {
+      $0.clearColor = MTLClearColorMake(0, 0, 0, 1)
+      $0.colorPixelFormat = .bgra8Unorm
+      $0.depthStencilPixelFormat = .depth32Float
+      $0.delegate = renderer
+    }
+  }
+
+  func updateNSView(_ lowlevelView: MTKView, context: Context) {}
+}
 #elseif canImport(UIKit)
 // MARK: - A Metail Plain View
 /// Source: https://github.com/dehesa/sample-metal/blob/main/Metal%20By%20Example/Clear%20Screen/MetalView.swift
@@ -81,6 +97,21 @@ struct Metal3DView: UIViewRepresentable {
 
   func updateUIView(_ lowlevelView: CAMetal3DView, context: Context) {}
 }
+// MARK: - A Metal View with Lighting
+/// Source: https://github.com/dehesa/sample-metal/blob/main/Metal%20By%20Example/Lighting/MetalView.swift
+struct MetalLightingView: UIViewRepresentable {
+  func makeUIView(context: Context) -> MTKView {
+    let renderer = context.coordinator
+    return MTKView(frame: .zero, device: renderer.device).configure {
+      $0.clearColor = MTLClearColorMake(0, 0, 0, 1)
+      $0.colorPixelFormat = .bgra8Unorm
+      $0.depthStencilPixelFormat = .depth32Float
+      $0.delegate = renderer
+    }
+  }
+
+  func updateUIView(_ lowlevelView: MTKView, context: Context) {}
+}
 #endif
 
 // MARK: - Extensions for Metal3DView
@@ -88,5 +119,12 @@ extension Metal3DView {
   @MainActor func makeCoordinator() -> CubeRenderer {
     let device = MTLCreateSystemDefaultDevice()!
     return CubeRenderer(device: device)!
+  }
+}
+// MARK: - Extensions for MetalLightingView
+extension MetalLightingView {
+  @MainActor func makeCoordinator() -> TeapotRenderer {
+    let device = MTLCreateSystemDefaultDevice()!
+    return TeapotRenderer(device: device)!
   }
 }
