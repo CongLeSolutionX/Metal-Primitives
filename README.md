@@ -62,6 +62,8 @@ graph TD
 
 Each module includes detailed **Mermaid diagrams** within its documentation to visually represent the flow of data and the relationships between code components.
 
+For more detail and illustrations, please check out [Documentation.md](/Documentation.md).
+
 ## Getting Started
 
 ### Prerequisites
