@@ -16,10 +16,15 @@ Each example is fully programmaticâ€”**no Storyboards, XIBs, or NIBs** are usedâ
 
 ## Demo
 
-Here is the previews of multiple metal screens rendering on iOS simulators:
+Here is the previews of multiple metal screens rendering on an iOS simulator:
 
 
 ![Demo-on-iOS-devices](Resources/Demo-on-iOS-devices.gif)
+
+Here is the previews of multiple metal screens rendering on a macOS simulator:
+
+
+![Demo-on-macOS-devices](Resources/Demo-macOS-devices.gif)
 
 ## Motivation
 

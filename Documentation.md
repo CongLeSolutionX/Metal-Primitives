@@ -1,4 +1,13 @@
-#  Comprehensive Diagrams and Illustrations for the Metal Primitives App
+---
+created: 2024-12-20 04:58:55
+url:
+author(s): Cong Le
+version: "1.0"
+license(s): MIT, CC BY 4.0
+---
+
+
+# Comprehensive Diagrams and Illustrations for the Metal Primitives App
 
 
 In this documentation, we will provide a comprehensive set of diagrams and illustrations explaining the functionalities and complexities of the Metal Primitives App. These diagrams are intended to serve as a reference for iOS developers who are interested in understanding the app's architecture, rendering pipeline, and how it implements advanced Metal rendering techniques across both iOS and macOS platforms.
@@ -6,28 +15,30 @@ In this documentation, we will provide a comprehensive set of diagrams and illus
 ---
 
 ## Table of Contents
-- [**1. High-Level Architecture Diagram**](#1-high-level-architecture-diagram)
-- [**2. App Structure Overview**](#2-app-structure-overview)
-- [**3. Class Diagram of View Controllers and Wrappers**](#3-class-diagram-of-view-controllers-and-wrappers)
-- [**4. App Initialization Sequence Diagram**](#4-app-initialization-sequence-diagram)
-- [**5. Metal Views and Renderers Class Diagram**](#5-metal-views-and-renderers-class-diagram)
-- [**6. Metal View Rendering Flow Sequence Diagram**](#6-metal-view-rendering-flow-sequence-diagram)
-- [**7. Platform-Specific View Creation Flowchart**](#7-platform-specific-view-creation-flowchart)
-- [**8. Extensions and Utilities Relationships Diagram**](#8-extensions-and-utilities-relationships-diagram)
-- [**9. Metal Rendering Process Flowchart**](#9-metal-rendering-process-flowchart)
-- [**10. Metal View Hierarchy and Custom Views Diagram**](#10-metal-view-hierarchy-and-custom-views-diagram)
-- [**11. Configurable References and Protocol Extensions Diagram**](#11-configurable-references-and-protocol-extensions-diagram)
-- [**12. Core Graphics Extensions and Iterators Diagram**](#12-core-graphics-extensions-and-iterators-diagram)
-- [**13. CAMetal2DView Class Diagram**](#13-cametal2dview-class-diagram)
-- [**14. CAMetal2DView Initialization and Rendering Sequence Diagram**](#14-cametal2dview-initialization-and-rendering-sequence-diagram)
-- [**15. CAMetal2DView Draw Method Flowchart**](#15-cametal2dview-draw-method-flowchart)
-- [**16. Shader Structures and Render Pipeline Diagram**](#16-shader-structures-and-render-pipeline-diagram)
-- [**17. Thread Safety and Synchronization Diagram**](#17-thread-safety-and-synchronization-diagram)
-- [**Conclusion**](#conclusion)
+- [Comprehensive Diagrams and Illustrations for the Metal Primitives App](#comprehensive-diagrams-and-illustrations-for-the-metal-primitives-app)
+  - [Table of Contents](#table-of-contents)
+  - [1. High-Level Architecture Diagram](#1-high-level-architecture-diagram)
+  - [2. App Structure Overview](#2-app-structure-overview)
+  - [3. Class Diagram of View Controllers and Wrappers](#3-class-diagram-of-view-controllers-and-wrappers)
+  - [4. App Initialization Sequence Diagram](#4-app-initialization-sequence-diagram)
+  - [5. Metal Views and Renderers Class Diagram](#5-metal-views-and-renderers-class-diagram)
+  - [6. Metal View Rendering Flow Sequence Diagram](#6-metal-view-rendering-flow-sequence-diagram)
+  - [7. Platform-Specific View Creation Flowchart](#7-platform-specific-view-creation-flowchart)
+  - [8. Extensions and Utilities Relationships Diagram](#8-extensions-and-utilities-relationships-diagram)
+  - [9. Metal Rendering Process Flowchart](#9-metal-rendering-process-flowchart)
+  - [10. Metal View Hierarchy and Custom Views Diagram](#10-metal-view-hierarchy-and-custom-views-diagram)
+  - [11. Configurable References and Protocol Extensions Diagram](#11-configurable-references-and-protocol-extensions-diagram)
+  - [12. Core Graphics Extensions and Iterators Diagram](#12-core-graphics-extensions-and-iterators-diagram)
+  - [13. CAMetal2DView Class Diagram](#13-cametal2dview-class-diagram)
+  - [14. CAMetal2DView Initialization and Rendering Sequence Diagram](#14-cametal2dview-initialization-and-rendering-sequence-diagram)
+  - [15. CAMetal2DView Draw Method Flowchart](#15-cametal2dview-draw-method-flowchart)
+  - [16. Shader Structures and Render Pipeline Diagram](#16-shader-structures-and-render-pipeline-diagram)
+  - [17. Thread Safety and Synchronization Diagram](#17-thread-safety-and-synchronization-diagram)
+  - [Conclusion](#conclusion)
 
 ---
 
-## **1. High-Level Architecture Diagram**
+## 1. High-Level Architecture Diagram
 
 This diagram provides an overview of the entire app's architecture, highlighting the conditional compilation for iOS and macOS platforms and how different views are integrated.
 
@@ -80,7 +91,7 @@ graph TD
 
 ---
 
-## **2. App Structure Overview**
+## 2. App Structure Overview
 
 This class diagram illustrates the overall structure of the app, focusing on the relationships between the main app entry point, SwiftUI views, and UIKit/AppKit view controllers.
 
@@ -122,7 +133,7 @@ classDiagram
 
 ---
 
-## **3. Class Diagram of View Controllers and Wrappers**
+## 3. Class Diagram of View Controllers and Wrappers
 
 This diagram shows how the SwiftUI views, UIKit/AppKit view controllers, and Objective-C view controllers interact.
 
@@ -165,14 +176,14 @@ classDiagram
     MySwiftViewController <|-- NSViewController
     ObjC_MetalPlainViewController_UIKitWrapperViewController <|-- MySwiftViewController
 
-        %% Define styles
-    classDef UIViewControllerRepresentable fill:#E810F,stroke:#F54
-    classDef ViewController fill:#FCE8E,stroke:#E51
-    classDef SwiftUIView fill:#FFF7E,stroke:#F05
-    classDef ObjectiveCVC fill:#E6F4E,stroke:#F53
+    %%%%Note: GitHub does not support this ssyntax for now%%%%
+    %% Define styles
+    %%classDef UIViewControllerRepresentable fill:#E810F,stroke:#F54
+    %%classDef ViewController fill:#FCE8E,stroke:#E51
+    %%classDef SwiftUIView fill:#FFF7E,stroke:#F05
+    %%classDef ObjectiveCVC fill:#E6F4E,stroke:#F53
 
 ```
-
 
 **Explanation:**
 
@@ -183,7 +194,7 @@ classDiagram
 
 ---
 
-## **4. App Initialization Sequence Diagram**
+## 4. App Initialization Sequence Diagram
 
 This sequence diagram illustrates the flow of control during the app's initialization, highlighting how views and view controllers are created and connected.
 
@@ -222,7 +233,7 @@ sequenceDiagram
 
 ---
 
-## **5. Metal Views and Renderers Class Diagram**
+## 5. Metal Views and Renderers Class Diagram
 
 This diagram shows the relationship between the Metal views and their respective renderers.
 
@@ -289,7 +300,7 @@ classDiagram
 
 ---
 
-## **6. Metal View Rendering Flow Sequence Diagram**
+## 6. Metal View Rendering Flow Sequence Diagram
 
 The following sequence diagram demonstrates how the Metal views are created and rendered within the app, showcasing the interaction between SwiftUI, `UIViewRepresentable`, and the Metal rendering pipeline.
 
@@ -324,7 +335,7 @@ sequenceDiagram
 
 ---
 
-## **7. Platform-Specific View Creation Flowchart**
+## 7. Platform-Specific View Creation Flowchart
 
 This flowchart demonstrates how the code handles platform-specific view creation using conditional compilation.
 
@@ -360,7 +371,7 @@ flowchart TD
 
 ---
 
-## **8. Extensions and Utilities Relationships Diagram**
+## 8. Extensions and Utilities Relationships Diagram
 
 The class diagram below shows how extensions and utilities are designed to add functionality to existing structures like `CGPoint`, `CGSize`, and `CGRect`.
 
@@ -414,7 +425,7 @@ classDiagram
 
 ---
 
-## **9. Metal Rendering Process Flowchart**
+## 9. Metal Rendering Process Flowchart
 
 This flowchart outlines the steps involved in the `CAMetalPlainView`'s rendering process.
 
@@ -449,7 +460,7 @@ flowchart TD
 
 ---
 
-## **10. Metal View Hierarchy and Custom Views Diagram**
+## 10. Metal View Hierarchy and Custom Views Diagram
 
 This class diagram shows the hierarchy and relationships between custom Metal views and their UIKit/AppKit counterparts, emphasizing the shared logic across platforms.
 
@@ -498,11 +509,10 @@ classDiagram
 
 ---
 
-## **11. Configurable References and Protocol Extensions Diagram**
+## 11. Configurable References and Protocol Extensions Diagram
 
 The class diagram below illustrates how protocols and extensions are used to provide configurable references across different types, enhancing code reusability and readability.
 
-## TODO: Fix this mermaid diagram syntax
 ```mermaid
 classDiagram
     %% Protocol
@@ -539,7 +549,7 @@ classDiagram
 
 ---
 
-## **12. Core Graphics Extensions and Iterators Diagram**
+## 12. Core Graphics Extensions and Iterators Diagram
 
 This class diagram demonstrates how custom iterators are implemented for `CGPoint`, `CGSize`, and `CGRect`, enabling them to conform to `Sequence` and various literal protocols.
 
@@ -587,7 +597,7 @@ classDiagram
 
 ---
 
-## **13. CAMetal2DView Class Diagram**
+## 13. CAMetal2DView Class Diagram
 
 This diagram shows the class hierarchy and composition of `CAMetal2DView` and its inner class `MetalState`.
 
@@ -628,7 +638,7 @@ classDiagram
 
 ---
 
-## **14. CAMetal2DView Initialization and Rendering Sequence Diagram**
+## 14. CAMetal2DView Initialization and Rendering Sequence Diagram
 
 This diagram shows the sequence of events during initialization and the rendering loop of `CAMetal2DView`.
 
@@ -668,7 +678,7 @@ sequenceDiagram
 
 ---
 
-## **15. CAMetal2DView Draw Method Flowchart**
+## 15. CAMetal2DView Draw Method Flowchart
 
 This flowchart details the steps taken within the `draw(now: frame:)` method during each frame of rendering.
 
@@ -696,7 +706,7 @@ flowchart TD
 
 ---
 
-## **16. Shader Structures and Render Pipeline Diagram**
+## 16. Shader Structures and Render Pipeline Diagram
 
 This class diagram illustrates the `ShaderVertexFor2DView` struct and its role in the rendering pipeline.
 
@@ -731,7 +741,7 @@ classDiagram
 
 ---
 
-## **17. Thread Safety and Synchronization Diagram**
+## 17. Thread Safety and Synchronization Diagram
 
 This diagram illustrates how the `MetalState` class manages thread safety and synchronization using a lock when accessing the `timer` property.
 
@@ -764,7 +774,7 @@ classDiagram
 
 ---
 
-# **Conclusion**
+## Conclusion
 
 The provided diagrams offer a comprehensive visual representation of the Metal Primitives App's architecture, rendering pipeline, and class relationships. By examining these diagrams, developers can gain a deeper understanding of:
 
