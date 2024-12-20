@@ -14,6 +14,13 @@ The project covers a range of rendering examples:
 
 Each example is fully programmatic—**no Storyboards, XIBs, or NIBs** are used—providing a clear understanding of the code involved in setting up and rendering Metal views.
 
+## Demo
+
+Here is the previews of multiple metal screens rendering on iOS simulators:
+
+
+![Demo-on-iOS-devices](Resources/Demo-on-iOS-devices.gif)
+
 ## Motivation
 
 This project is a migration and enhancement of the code from Warren Moore's book, [*Metal by Example*](https://warrenmoore.net/), originally written in 2015. By updating the code to support the latest versions of Swift and Objective-C, and integrating it with both iOS and macOS platforms, we aim to make Metal's functionalities more accessible to modern developers.
