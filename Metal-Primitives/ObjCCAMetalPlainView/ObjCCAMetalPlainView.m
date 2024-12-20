@@ -5,10 +5,10 @@
 //  Created by Cong Le on 12/19/24.
 //
 
-#import "CAMetalPlainView.h"
+#import "ObjCCAMetalPlainView.h"
 #import <TargetConditionals.h>
 
-@implementation CAMetalPlainView {
+@implementation ObjCCAMetalPlainView {
 #if TARGET_OS_OSX
     CVDisplayLinkRef _displayLink;
 #endif
@@ -71,11 +71,15 @@ static CVReturn MyDisplayLinkCallback(CVDisplayLinkRef displayLink,
                                       void *displayLinkContext)
 {
     @autoreleasepool {
-        CAMetalPlainView *view = (__bridge CAMetalPlainView *)displayLinkContext;
-        [view render];
+        ObjCCAMetalPlainView *view = (__bridge ObjCCAMetalPlainView *)displayLinkContext;
+        // Dispatch render call to the main thread
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [view render];
+        });
     }
     return kCVReturnSuccess;
 }
+
 
 - (void)dealloc {
     if (_displayLink) {

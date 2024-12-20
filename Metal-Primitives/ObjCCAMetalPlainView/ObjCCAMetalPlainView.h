@@ -21,7 +21,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CAMetalPlainView : PlatformView
+@interface ObjCCAMetalPlainView : PlatformView
 
 - (instancetype)initWithDevice:(id<MTLDevice>)device
                          queue:(id<MTLCommandQueue>)queue;

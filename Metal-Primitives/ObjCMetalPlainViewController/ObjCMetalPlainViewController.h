@@ -14,9 +14,9 @@
 #endif
 
 #if TARGET_OS_OSX
-@interface MetalPlainViewController : NSViewController
+@interface ObjCMetalPlainViewController : NSViewController
 #else
-@interface MetalPlainViewController : UIViewController
+@interface ObjCMetalPlainViewController : UIViewController
 #endif
 
 @end

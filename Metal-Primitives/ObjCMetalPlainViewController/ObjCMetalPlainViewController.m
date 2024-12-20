@@ -6,20 +6,20 @@
 //
 //
 
-#import "MetalPlainViewController.h"
-#import "CAMetalPlainView.h"
+#import "ObjCMetalPlainViewController.h"
+#import "ObjCCAMetalPlainView.h"
 #import <Metal/Metal.h>
 #import <TargetConditionals.h>
 
-@interface MetalPlainViewController ()
+@interface ObjCMetalPlainViewController ()
 
-@property (nonatomic, strong) CAMetalPlainView *metalView;
+@property (nonatomic, strong) ObjCCAMetalPlainView *metalView;
 @property (nonatomic, strong) id<MTLDevice> device;
 @property (nonatomic, strong) id<MTLCommandQueue> commandQueue;
 
 @end
 
-@implementation MetalPlainViewController
+@implementation ObjCMetalPlainViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,7 +32,7 @@
     self.commandQueue.label = @"com.example.metalCommandQueue";
 
     // Initialize the Metal view
-    self.metalView = [[CAMetalPlainView alloc] initWithDevice:self.device
+    self.metalView = [[ObjCCAMetalPlainView alloc] initWithDevice:self.device
                                                         queue:self.commandQueue];
     self.metalView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:self.metalView];

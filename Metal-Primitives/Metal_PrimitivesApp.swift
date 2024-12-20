@@ -27,22 +27,24 @@ class SharedLogic {  // Located in the 'Shared' directory
 }
 
 @main
-struct MyAppApp: App {
+struct MetalPrimitivesApp: App {
     var body: some Scene {
         WindowGroup {
             #if os(iOS)
             // iOS-specific implementation (e.g., UIKit calls)
             
             // Display iOS views from different sources on the same screen
-            MetalTexturingView()
-            MetalLightingView()
-            Metal3DView()
-            iOS_UIKit_Metal2DView()
-            iOS_UIKit_MetalPlainView()
-            iOS_UIKit_ViewControllerWrapper()
-            iOS_SwiftUI_RootContentView()
+            ObjCMetalPlainViewControllerRepresentable()
+//            MetalTexturingView()
+//            MetalLightingView()
+//            Metal3DView()
+//            iOS_UIKit_Metal2DView()
+//            iOS_UIKit_MetalPlainView()
+//            iOS_UIKit_ViewControllerWrapper()
+//            iOS_SwiftUI_RootContentView()
             #elseif os(macOS)
             // macOS-specific implementation (e.g., AppKit calls)
+            //macOS_SwiftUI_RootContentView()
             MetalTexturingView()
             MetalLightingView()
             Metal3DView()

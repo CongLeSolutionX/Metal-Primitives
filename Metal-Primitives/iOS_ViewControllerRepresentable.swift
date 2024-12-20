@@ -10,7 +10,7 @@ import SwiftUI
 import UIKit
 
 // UIViewControllerRepresentable implementation
-struct iOS_UIKit_ViewControllerWrapper: UIViewControllerRepresentable {
+struct iOS_ViewControllerRepresentable: UIViewControllerRepresentable {
     typealias UIViewControllerType = ObjC_MetalPlainViewController_UIKitWrapperViewController
     
     // Required methods implementation
@@ -37,7 +37,7 @@ class ObjC_MetalPlainViewController_UIKitWrapperViewController: MySwiftViewContr
         view.backgroundColor = .brown
         
         // Load ObjC view controller
-        let objcViewController = MetalPlainViewController()
+        let objcViewController = ObjCMetalPlainViewController()
         addChild(objcViewController)
         view.addSubview(objcViewController.view)
         objcViewController.didMove(toParent: self)

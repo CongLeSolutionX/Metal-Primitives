@@ -10,8 +10,8 @@ import SwiftUI
 // Use in SwiftUI view
 struct iOS_SwiftUI_RootContentView: View {  /// presenting this view to the App level of a SwiftUI-based project
     var body: some View {
-        iOS_UIKit_ViewControllerWrapper()
-            .edgesIgnoringSafeArea(.all) /// Ignore safe area to extend the background color to the entire screen
+        ObjCMetalPlainViewControllerRepresentable()
+            .edgesIgnoringSafeArea(.all)
     }
 }
 
@@ -19,14 +19,12 @@ struct iOS_SwiftUI_RootContentView: View {  /// presenting this view to the App 
 // Before iOS 17, use this syntax for preview UIKit view controller
 struct iOSUIKitViewControllerWrapper_Previews: PreviewProvider {
     static var previews: some View {
-            iOS_UIKit_ViewControllerWrapper()
-            MetalTexturingView()
-            MetalLightingView()
-            Metal3DView()
-            iOS_UIKit_Metal2DView()
-            iOS_UIKit_MetalPlainView() // directly preview the view through protocol `UIViewRepresentable`
-            iOS_UIKit_ViewControllerWrapper() // preview the view through a wrapper controller view
-            iOS_SwiftUI_RootContentView()
+            MetalTexturingViewRepresentable()
+            MetalLightingViewRepresentable()
+            Metal3DViewRepresentable()
+            Metal2DViewRepresentable()
+            MetalPlainViewRepresentable() //  preview the view through protocol `UIViewRepresentable`
+            iOS_ViewControllerRepresentable() // preview the view through protocol `ViewControlerRepresentable`
     }
 }
 
@@ -36,8 +34,16 @@ struct iOSUIKitViewControllerWrapper_Previews: PreviewProvider {
 }
 
 #elseif os(macOS)
+struct macOS_SwiftUI_RootContentView: View {
+    var body: some View {
+        UIKitWrapper_ObjectiveMetalPlainViewControllerRepresentable()
+            .edgesIgnoringSafeArea(.all) // Optional: Make the view full-screen
+    }
+}
+
 struct NSMetalPlainViewWrapper_Previews: PreviewProvider {
     static var previews: some View {
+        //macOS_SwiftUI_RootContentView()
         MetalTexturingView()
         MetalLightingView()
         Metal3DView()
