@@ -5,31 +5,25 @@ In this documentation, we will provide a comprehensive set of diagrams and illus
 
 ---
 
-## **Table of Contents**
-
-- [By o1-preview custom](#by-o1-preview-custom)
-- [**Comprehensive Diagrams and Illustrations for the Metal Primitives App**](#comprehensive-diagrams-and-illustrations-for-the-metal-primitives-app)
-  - [**Table of Contents**](#table-of-contents)
-  - [**1. High-Level Architecture Diagram**](#1-high-level-architecture-diagram)
-  - [**2. App Structure Overview**](#2-app-structure-overview)
-  - [**3. Class Diagram of View Controllers and Wrappers**](#3-class-diagram-of-view-controllers-and-wrappers)
-  - [**4. App Initialization Sequence Diagram**](#4-app-initialization-sequence-diagram)
-  - [**5. Metal Views and Renderers Class Diagram**](#5-metal-views-and-renderers-class-diagram)
-  - [**6. Metal View Rendering Flow Sequence Diagram**](#6-metal-view-rendering-flow-sequence-diagram)
-  - [**7. Platform-Specific View Creation Flowchart**](#7-platform-specific-view-creation-flowchart)
-  - [**8. Extensions and Utilities Relationships Diagram**](#8-extensions-and-utilities-relationships-diagram)
-  - [**9. Metal Rendering Process Flowchart**](#9-metal-rendering-process-flowchart)
-  - [**10. Metal View Hierarchy and Custom Views Diagram**](#10-metal-view-hierarchy-and-custom-views-diagram)
-  - [**11. Configurable References and Protocol Extensions Diagram**](#11-configurable-references-and-protocol-extensions-diagram)
-  - [TODO: Fix this mermaid diagram syntax](#todo-fix-this-mermaid-diagram-syntax)
-  - [**12. Core Graphics Extensions and Iterators Diagram**](#12-core-graphics-extensions-and-iterators-diagram)
-  - [**13. CAMetal2DView Class Diagram**](#13-cametal2dview-class-diagram)
-  - [**14. CAMetal2DView Initialization and Rendering Sequence Diagram**](#14-cametal2dview-initialization-and-rendering-sequence-diagram)
-  - [**15. CAMetal2DView Draw Method Flowchart**](#15-cametal2dview-draw-method-flowchart)
-  - [**16. Shader Structures and Render Pipeline Diagram**](#16-shader-structures-and-render-pipeline-diagram)
-  - [**17. Thread Safety and Synchronization Diagram**](#17-thread-safety-and-synchronization-diagram)
+## Table of Contents
+- [**1. High-Level Architecture Diagram**](#1-high-level-architecture-diagram)
+- [**2. App Structure Overview**](#2-app-structure-overview)
+- [**3. Class Diagram of View Controllers and Wrappers**](#3-class-diagram-of-view-controllers-and-wrappers)
+- [**4. App Initialization Sequence Diagram**](#4-app-initialization-sequence-diagram)
+- [**5. Metal Views and Renderers Class Diagram**](#5-metal-views-and-renderers-class-diagram)
+- [**6. Metal View Rendering Flow Sequence Diagram**](#6-metal-view-rendering-flow-sequence-diagram)
+- [**7. Platform-Specific View Creation Flowchart**](#7-platform-specific-view-creation-flowchart)
+- [**8. Extensions and Utilities Relationships Diagram**](#8-extensions-and-utilities-relationships-diagram)
+- [**9. Metal Rendering Process Flowchart**](#9-metal-rendering-process-flowchart)
+- [**10. Metal View Hierarchy and Custom Views Diagram**](#10-metal-view-hierarchy-and-custom-views-diagram)
+- [**11. Configurable References and Protocol Extensions Diagram**](#11-configurable-references-and-protocol-extensions-diagram)
+- [**12. Core Graphics Extensions and Iterators Diagram**](#12-core-graphics-extensions-and-iterators-diagram)
+- [**13. CAMetal2DView Class Diagram**](#13-cametal2dview-class-diagram)
+- [**14. CAMetal2DView Initialization and Rendering Sequence Diagram**](#14-cametal2dview-initialization-and-rendering-sequence-diagram)
+- [**15. CAMetal2DView Draw Method Flowchart**](#15-cametal2dview-draw-method-flowchart)
+- [**16. Shader Structures and Render Pipeline Diagram**](#16-shader-structures-and-render-pipeline-diagram)
+- [**17. Thread Safety and Synchronization Diagram**](#17-thread-safety-and-synchronization-diagram)
 - [**Conclusion**](#conclusion)
-- [**Additional Notes**](#additional-notes)
 
 ---
 
