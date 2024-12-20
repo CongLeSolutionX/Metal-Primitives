@@ -11,15 +11,15 @@ import UIKit
 
 // UIViewControllerRepresentable implementation
 struct iOS_UIKit_ViewControllerWrapper: UIViewControllerRepresentable {
-    typealias UIViewControllerType = MyUIKitViewController
+    typealias UIViewControllerType = ObjC_MetalPlainViewController_UIKitWrapperViewController
     
     // Required methods implementation
-    func makeUIViewController(context: Context) -> MyUIKitViewController {
+    func makeUIViewController(context: Context) -> ObjC_MetalPlainViewController_UIKitWrapperViewController {
         // Instantiate and return the UIKit view controller
-        return MyUIKitViewController()
+        return ObjC_MetalPlainViewController_UIKitWrapperViewController()
     }
     
-    func updateUIViewController(_ uiViewController: MyUIKitViewController, context: Context) {
+    func updateUIViewController(_ uiViewController: ObjC_MetalPlainViewController_UIKitWrapperViewController, context: Context) {
         // Update the view controller if needed
     }
 }
@@ -31,5 +31,16 @@ class MyUIKitViewController: MySwiftViewController {
         view.backgroundColor = .systemYellow
     }
 }
-
+class ObjC_MetalPlainViewController_UIKitWrapperViewController: MySwiftViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .brown
+        
+        // Load ObjC view controller
+        let objcViewController = MetalPlainViewController()
+        addChild(objcViewController)
+        view.addSubview(objcViewController.view)
+        objcViewController.didMove(toParent: self)
+    }
+}
 #endif
