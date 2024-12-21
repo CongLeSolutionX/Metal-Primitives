@@ -121,23 +121,71 @@ All views in this project are created programmatically. This approach provides:
 
 To help visualize the architecture and flow of each example, we've included **Mermaid diagrams** in the documentation of each module.
 
-#### Example Diagram: Spinning 3D Cube
+#### Example: Metal Views and Renderers Class Diagram
+
+This diagram shows the relationship between the Metal views and their respective renderers.
 
 ```mermaid
-graph LR
-    A[Main Render Loop] --> B[Update Function]
-    B --> C[Calculate Transformations]
-    C --> D[Vertex Shader]
-    D --> E[Fragment Shader]
-    E --> F[Render Command Encoder]
-    F --> G[Drawable Presentation]
+classDiagram
+    %% SwiftUI Representable Views
+    class Metal3DViewRepresentable {
+        +makeUIView()
+        +updateUIView()
+        +makeCoordinator()
+    }
+    class MetalLightingViewRepresentable {
+        +makeUIView()
+        +updateUIView()
+        +makeCoordinator()
+    }
+    class MetalTexturingViewRepresentable {
+        +makeUIView()
+        +updateUIView()
+        +makeCoordinator()
+    }
+
+    Metal3DViewRepresentable ..|> UIViewRepresentable
+    MetalLightingViewRepresentable ..|> UIViewRepresentable
+    MetalTexturingViewRepresentable ..|> UIViewRepresentable
+
+    %% Underlying Metal Views
+    class CAMetal3DView {
+        +device: MTLDevice
+        +renderer: RendererFor3DView
+    }
+    class MTKView
+
+    Metal3DViewRepresentable --> CAMetal3DView
+    MetalLightingViewRepresentable --> MTKView
+    MetalTexturingViewRepresentable --> MTKView
+
+    %% Coordinators (Renderers)
+    Metal3DViewRepresentable --> CubeRenderer : makeCoordinator()
+    MetalLightingViewRepresentable --> TeapotRenderer : makeCoordinator()
+    MetalTexturingViewRepresentable --> CowRenderer : makeCoordinator()
+
+    %% Renderers
+    class RendererFor3DView {
+        <<Protocol>>
+        + device: MTLDevice
+        + draw(layer: CAMetalLayer, time: (now: Double, display: Double))
+    }
+    RendererFor3DView <|.. CubeRenderer
+    RendererFor3DView <|.. TeapotRenderer
+    RendererFor3DView <|.. CowRenderer
+
+    CubeRenderer ..|> RendererFor3DView
+    TeapotRenderer ..|> MTKViewDelegate
+    CowRenderer ..|> MTKViewDelegate
 ```
 
-These diagrams illustrate:
+**Explanation:**
 
-- **Render Pipeline**: The sequence of steps from updating data to presenting the drawable.
-- **Shader Relationships**: How vertex and fragment shaders interact with the rendering process.
-- **Data Flow**: The movement of data through buffers and encoders.
+- Each representable view conforms to `UIViewRepresentable` and integrates a Metal view into SwiftUI.
+- `Metal3DViewRepresentable` uses `CAMetal3DView`, which utilizes a custom renderer (`CubeRenderer`).
+- `MetalLightingViewRepresentable` and `MetalTexturingViewRepresentable` use `MTKView` and custom renderers (`TeapotRenderer` and `CowRenderer` respectively).
+- Renderers conform to either `RendererFor3DView` protocol or `MTKViewDelegate`.
+
 
 ## Learning Objectives
 
