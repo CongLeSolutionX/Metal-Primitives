@@ -42,39 +42,101 @@ The project also incorporates cross-platform support from [dehesa/sample-metal](
 
 ## Code Structure
 
-The project is organized into modules, each demonstrating a specific Metal rendering concept. Below is an overview of the code structure:
+### High-Level Architecture Diagram
+
+This diagram provides an overview of the entire app's architecture, highlighting the conditional compilation for iOS and macOS platforms and how different views are integrated.
 
 ```mermaid
 graph TD
-    A[Metal Primitives Project]
-    A --> B[Clear Screen]
-    A --> C[2D Triangle]
-    A --> D[Spinning 3D Cube]
-    A --> E[Spinning Teapot with Lighting]
-    A --> F[Spinning Cow with Texture & Lighting]
-    B --> B1[Swift Implementation]
-    B --> B2[Objective-C Implementation]
-    C --> C1[Swift Implementation]
-    C --> C2[Objective-C Implementation]
-    D --> D1[Swift Implementation]
-    D --> D2[Objective-C Implementation]
-    E --> E1[Swift Implementation]
-    E --> E2[Objective-C Implementation]
-    F --> F1[Swift Implementation]
-    F --> F2[Objective-C Implementation]
+    %% Define styles
+    classDef iOS fill:#43F6,stroke:#4285F4
+    classDef macOS fill:#F4F6,stroke:#34A853
+
+    %% App Structure
+    A["MetalPrimitivesApp<br>@main App"]
+    A -->|contains| B[WindowGroup]
+
+    %% Platform Conditional Views
+    B -->|Platform: iOS| C[iOS Views]
+    B -->|Platform: macOS| D[macOS Views]
+
+    %% iOS Views
+    subgraph iOS Views
+        direction TB
+        C1[ObjCMetalPlainViewControllerRepresentable]:::iOS
+        C2[MetalTexturingViewRepresentable]:::iOS
+        C3[MetalLightingViewRepresentable]:::iOS
+        C4[Metal3DViewRepresentable]:::iOS
+        C5[Metal2DViewRepresentable]:::iOS
+        C6[MetalPlainViewRepresentable]:::iOS
+        C7[iOS_ViewControllerRepresentable]:::iOS
+        C8[iOS_SwiftUI_RootContentView]:::iOS
+    end
+    C --> C1 & C2 & C3 & C4 & C5 & C6 & C7 & C8
+
+    %% macOS Views
+    subgraph macOS Views
+        direction TB
+        D1[MetalTexturingViewRepresentable]:::macOS
+        D2[MetalLightingViewRepresentable]:::macOS
+        D3[Metal3DViewRepresentable]:::macOS
+        D4[NSMetal2DViewRepresentable]:::macOS
+        D5[NSMetalPlainViewRepresentable]:::macOS
+    end
+    D --> D1 & D2 & D3 & D4 & D5
 ```
 
-### Modules and Descriptions
+**Explanation:**
 
-- **Clear Screen**: Initializes a Metal view and clears the screen with a solid color. This is the foundational step for any rendering task in Metal.
-- **2D Triangle**: Introduces basic rendering by drawing a simple 2D triangle using vertex and fragment shaders.
-- **Spinning 3D Cube**: Demonstrates 3D rendering with rotation, showcasing transformations and perspective projection.
-- **Spinning Teapot with Lighting**: Incorporates manual lighting techniques on a teapot model, illustrating normals, light positioning, and shading.
-- **Spinning Cow with Texture & Lighting**: Combines advanced lighting and texturing on a cow model, demonstrating how to apply textures and manipulate material properties.
+- The `MetalPrimitivesApp` uses a `WindowGroup` to host the main content.
+- Based on the platform (iOS or macOS), it conditionally includes different views.
+- The iOS Views and macOS Views are grouped under their respective platforms.
+- Each platform includes a set of representable views that integrate Metal rendering into SwiftUI.
 
-Each module includes detailed **Mermaid diagrams** within its documentation to visually represent the flow of data and the relationships between code components.
+---
 
-For more detail and illustrations, please check out [Documentation.md](/Documentation.md).
+### App Structure Overview
+
+This class diagram illustrates the overall structure of the app, focusing on the relationships between the main app entry point, SwiftUI views, and UIKit/AppKit view controllers.
+
+```mermaid
+classDiagram
+    %% Main App Entry Point
+    class MetalPrimitivesApp {
+        +var body: some Scene
+    }
+    MetalPrimitivesApp --> WindowGroup
+
+    %% SwiftUI Views
+    WindowGroup --> iOS_SwiftUI_RootContentView
+    iOS_SwiftUI_RootContentView --> ObjCMetalPlainViewControllerRepresentable
+
+    %% UIViewControllerRepresentable Wrapper
+    class ObjCMetalPlainViewControllerRepresentable {
+        +makeUIViewController()
+        +updateUIViewController()
+    }
+    ObjCMetalPlainViewControllerRepresentable ..|> UIViewControllerRepresentable
+
+    %% UIKit View Controllers
+    ObjCMetalPlainViewControllerRepresentable --> ObjCMetalPlainViewController
+
+    %% Typealiases and Base Classes
+    class MySwiftViewController
+    MySwiftViewController <|-- UIViewController
+    MySwiftViewController <|-- NSViewController
+    ObjCMetalPlainViewController <|-- MySwiftViewController
+```
+
+**Explanation:**
+
+- `MetalPrimitivesApp` is the main entry point of the app, containing the `WindowGroup`.
+- `iOS_SwiftUI_RootContentView` is the main SwiftUI view for iOS, which uses `ObjCMetalPlainViewControllerRepresentable` to bridge UIKit components.
+- `ObjCMetalPlainViewControllerRepresentable` conforms to `UIViewControllerRepresentable` to integrate a UIKit view controller within SwiftUI.
+- `ObjCMetalPlainViewController` is an Objective-C view controller that handles Metal rendering.
+
+
+For more details and illustrations, please check out [Documentation.md](/Documentation.md).
 
 ## Getting Started
 
