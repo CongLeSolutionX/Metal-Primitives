@@ -30,6 +30,9 @@ In this documentation, we will provide a comprehensive set of diagrams and illus
   - [11. Configurable References and Protocol Extensions Diagram](#11-configurable-references-and-protocol-extensions-diagram)
   - [12. Core Graphics Extensions and Iterators Diagram](#12-core-graphics-extensions-and-iterators-diagram)
   - [13. CAMetal2DView Class Diagram](#13-cametal2dview-class-diagram)
+    - [Class Diagram of `CAMetal2DView` and `MetalState`](#class-diagram-of-cametal2dview-and-metalstate)
+    - [High-Level Overview of Cross-Platform Support](#high-level-overview-of-cross-platform-support)
+    - [Platform-Specific Implementation Flowchart](#platform-specific-implementation-flowchart)
   - [14. CAMetal2DView Initialization and Rendering Sequence Diagram](#14-cametal2dview-initialization-and-rendering-sequence-diagram)
   - [15. CAMetal2DView Draw Method Flowchart](#15-cametal2dview-draw-method-flowchart)
   - [16. Shader Structures and Render Pipeline Diagram](#16-shader-structures-and-render-pipeline-diagram)
@@ -45,8 +48,8 @@ This diagram provides an overview of the entire app's architecture, highlighting
 ```mermaid
 graph TD
     %% Define styles
-    classDef iOS fill:#DF4FF,stroke:#4285F4
-    classDef macOS fill:#FE6F0,stroke:#EA4335
+    classDef iOS fill:#43F6,stroke:#4285F4
+    classDef macOS fill:#F4F6,stroke:#34A853
 
     %% App Structure
     A["MetalPrimitivesApp<br>@main App"]
@@ -432,8 +435,8 @@ This flowchart outlines the steps involved in the `CAMetalPlainView`'s rendering
 ```mermaid
 flowchart TD
     %% Define styles
-    classDef ProcessStep fill:#64EA,stroke:#34A853
-    classDef Decision fill:#F7E6,stroke:#FBBC05
+    classDef ProcessStep fill:#E6F4,stroke:#34A853
+    classDef Decision fill:#FFF7,stroke:#FBBC05
 
     Start([Start Drawing]):::ProcessStep
     Start --> CheckDrawableSize{Is Drawable Size Valid?}:::Decision
@@ -517,17 +520,11 @@ The class diagram below illustrates how protocols and extensions are used to pro
 classDiagram
     %% Protocol
     class ConfigurableReference {
+        <<protocol>>
         +configure(block: (Self) -> Void): Self
     }
 
     %% Types Conforming to ConfigurableReference
-    class NSObjectProtocol
-    class MTLCommandQueue
-    class CAMetalLayer
-    class MTKView
-    class MTLBuffer
-    class NSLock
-
     NSObjectProtocol ..|> ConfigurableReference
     MTLCommandQueue ..|> ConfigurableReference
     CAMetalLayer ..|> ConfigurableReference
@@ -535,10 +532,6 @@ classDiagram
     MTLBuffer ..|> ConfigurableReference
     NSLock ..|> ConfigurableReference
 
-    %% Extension Implementation
-    extension NSObjectProtocol {
-        +configure(block: (Self) -> Void): Self
-    }
 ```
 
 **Explanation:**
@@ -620,7 +613,23 @@ classDiagram
         -_timer: FrameTimer?
         +timer: FrameTimer?
     }
+    
+    %% Platform-Specific View Classes
+    class CAMetal2DViewMac {
+        +makeBackingLayer() : CALayer
+        +viewDidMoveToWindow()
+        +setBoundsSize(newSize: NSSize)
+        +setFrameSize(newSize: NSSize)
+    }
+    class CAMetal2DViewiOS {
+        +layerClass : AnyClass
+        +didMoveToWindow()
+        +layoutSubviews()
+    }
+    CAMetal2DView <|-- CAMetal2DViewMac : inherits
+    CAMetal2DView <|-- CAMetal2DViewiOS : inherits
 
+    %% Dependencies
     CAMetal2DView --> MetalState : has a
     MetalState --> MTLDevice
     MetalState --> MTLCommandQueue
@@ -629,12 +638,130 @@ classDiagram
     MetalState --> CAMetalLayer
     MetalState --> NSLock
     MetalState --> FrameTimer
+
+    %% ShaderVertexFor2DView Struct
+    class ShaderVertexFor2DView {
+        +position: float4
+        +color: float4
+    }
+    
+    MetalState --> ShaderVertexFor2DView
+
+```
+
+**Explanation:**
+- `CAMetal2DView` is a final class that represents the Metal view, with platform-specific subclasses for macOS (`CAMetal2DViewMac`) and iOS (`CAMetal2DViewiOS`).
+- The `MetalState` class encapsulates the Metal rendering state, including the device, command queue, render pipeline state, vertex buffer, Metal layer, and frame timer.
+- `MetalState` owns the Metal resources and manages synchronization using a lock.
+- `ShaderVertexFor2DView` is a struct representing the vertex data for rendering the triangle.
+
+---
+
+
+### Class Diagram of `CAMetal2DView` and `MetalState`
+
+This diagram shows the class hierarchy and composition of `CAMetal2DView` and its inner class `MetalState`.
+
+```mermaid
+classDiagram
+    %% Platform-Specific Classes
+    class CAMetal2DView {
+        +state: MetalState
+        +init(device: MTLDevice, queue: MTLCommandQueue)
+        +draw(now: Double, frame: Double)
+    }
+
+    %% MetalState Inner Class
+    class MetalState {
+        -device: MTLDevice
+        -queue: MTLCommandQueue
+        -pipeline: MTLRenderPipelineState
+        -buffer: MTLBuffer
+        -layerPointer: UnsafeMutablePointer<CAMetalLayer>
+        -lock: NSLock
+        -_timer: FrameTimer?
+        +init(device: MTLDevice, queue: MTLCommandQueue)
+        +layer: CAMetalLayer
+        +timer: FrameTimer?
+    }
+    
+    %% Relationships between CAMetal2DView 
+    %% and other Protocols and Extensions
+    CAMetal2DView --> MetalState : has
+    MetalState *-- CAMetalLayer : layerPointer
+    MetalState --> NSLock : lock
+    MetalState --> FrameTimer : timer
+
+    %% Relationship betwwen CAMetal2DView 
+    %% and Platform Conditional Compilation
+    CAMetal2DView <|-- UIView : iOS
+    CAMetal2DView <|-- NSView : macOS
 ```
 
 **Explanation:**
 
-- `CAMetal2DView` contains an instance of `MetalState`, which holds all the Metal-related objects and state.
-- `MetalState` manages the Metal device, command queue, pipeline state, buffers, and synchronization primitives.
+- `CAMetal2DView` is a custom view subclassing either `UIView` (for iOS) or `NSView` (for macOS) based on the platform.
+- It contains a `MetalState` instance, which holds the Metal rendering state and resources.
+- `MetalState` manages the Metal device, command queue, render pipeline state, vertex buffer, and a pointer to the `CAMetalLayer`.
+- The `layerPointer` in `MetalState` holds an unsafe pointer to the `CAMetalLayer` associated with the view.
+- The `NSLock` is used to synchronize access to the `_timer` property, which manages the rendering loop via `FrameTimer`.
+
+---
+
+
+### High-Level Overview of Cross-Platform Support
+
+This diagram highlights how `CAMetal2DView` handles cross-platform support using conditional compilation.
+
+```mermaid
+graph TD
+    CAMetal2DView
+    CAMetal2DView -->|"#if os(macOS)"| CAMetal2DViewMac
+    CAMetal2DView -->|"#elseif canImport(UIKit)"| CAMetal2DViewiOS
+    CAMetal2DViewMac --> AppKit
+    CAMetal2DViewiOS --> UIKit
+    
+```
+
+
+**Explanation:**
+
+- `CAMetal2DView` has platform-specific implementations for macOS and iOS, using `#if` and `#elseif` directives.
+- On macOS, `CAMetal2DView` subclasses `NSView` and imports `AppKit`.
+- On iOS, `CAMetal2DView` subclasses `UIView` and imports `UIKit`.
+- This allows the same class to be used on both platforms with the appropriate behavior and API usage.
+
+---
+
+
+### Platform-Specific Implementation Flowchart
+
+This flowchart shows the conditional compilation and platform-specific implementations in `CAMetal2DView`.
+
+```mermaid
+flowchart TD
+    Start([Start])
+    CheckPlatform{Is Platform iOS?}
+    CheckPlatform -- Yes --> UseUIView[Subclass UIView]
+    UseUIView --> OverrideLayerClass
+    UseUIView --> didMoveToWindow["Override didMoveToWindow()"]
+    UseUIView --> layoutSubviews["Override layoutSubviews()"]
+    CheckPlatform -- No --> UseNSView[Subclass NSView]
+    UseNSView --> makeBackingLayer
+    UseNSView --> viewDidMoveToWindow["Override viewDidMoveToWindow()"]
+    UseNSView --> setBoundsSize["Override setBoundsSize()"]
+    UseNSView --> setFrameSize["Override setFrameSize()"]
+    Both --> InitializeState[Initialize MetalState]
+    
+```
+
+
+**Explanation:**
+
+- The code uses `#if` directives to differentiate between platforms.
+- On iOS, `CAMetal2DView` subclasses `UIView` and overrides `didMoveToWindow()` and `layoutSubviews()`.
+- On macOS, `CAMetal2DView` subclasses `NSView` and overrides `viewDidMoveToWindow()`, `setBoundsSize()`, and `setFrameSize()`.
+- Both implementations initialize `MetalState` and set up the `CAMetalLayer`.
 
 ---
 
@@ -685,23 +812,29 @@ This flowchart details the steps taken within the `draw(now: frame:)` method dur
 ```mermaid
 flowchart TD
     %% Define styles
-    classDef Step fill:#6F4EA,stroke:#34A853
+    classDef EndOfDrawMethod fill:#64EA,stroke:#34A853
     classDef Decision fill:#F7E6,stroke:#FBBC05
+    classDef StartEndEncoding fill:#119F00, stroke:#333, stroke-width:2px
+    classDef CheckDrawableSize fill:#ff0000, stroke:#333, stroke-width:2px
+    classDef CommandBufferOperators fill:#00008B, stroke:#333, stroke-width:1px
+    classDef EncoderSettings fill:#8B8000, stroke:#333, stroke-width:1px
 
-    Start(["Start draw(now, frame)"]):::Step
-    Start --> CheckDrawableSize{Is drawable size valid?}:::Decision
-    CheckDrawableSize -- No --> End([Return]):::Step
-    CheckDrawableSize -- Yes --> GetDrawable[Get next drawable]:::Step
-    GetDrawable --> CreateCommandBuffer[Create command buffer]:::Step
-    CreateCommandBuffer --> CreateRenderPassDescriptor[Create render pass descriptor]:::Step
-    CreateRenderPassDescriptor --> CreateRenderCommandEncoder[Create render command encoder]:::Step
-    CreateRenderCommandEncoder --> SetPipelineState[Set render pipeline state]:::Step
-    SetPipelineState --> SetVertexBuffer[Set vertex buffer]:::Step
-    SetVertexBuffer --> DrawPrimitives["Draw primitives (triangle)"]:::Step
-    DrawPrimitives --> EndEncoding[End encoding]:::Step
-    EndEncoding --> PresentDrawable[Present drawable]:::Step
-    PresentDrawable --> CommitCommandBuffer[Commit command buffer]:::Step
-    CommitCommandBuffer --> End([End of draw method]):::Step
+
+    Start(["Start draw(now, frame)"]):::StartEndEncoding
+    Start --> CheckDrawableSize{Is drawable size valid?}:::CheckDrawableSize
+    CheckDrawableSize -- No --> End([Return]):::Decision
+    CheckDrawableSize -- Yes --> GetDrawable[Get next drawable]:::CommandBufferOperators
+    GetDrawable --> CreateCommandBuffer[Create command buffer]:::CommandBufferOperators
+    CreateCommandBuffer --> CreateRenderPassDescriptor[Create render pass descriptor]:::CommandBufferOperators
+    CreateRenderPassDescriptor --> CreateRenderCommandEncoder[Create render command encoder]:::CommandBufferOperators
+    CreateRenderCommandEncoder --> SetPipelineState[Set render pipeline state]:::EncoderSettings
+    SetPipelineState --> SetVertexBuffer[Set vertex buffer]:::EncoderSettings
+    SetVertexBuffer --> DrawPrimitives["Draw primitives (triangle)"]:::EncoderSettings
+    DrawPrimitives --> EndEncoding[End encoding]:::StartEndEncoding
+    EndEncoding --> PresentDrawable[Present drawable]:::CommandBufferOperators
+    PresentDrawable --> CommitCommandBuffer[Commit command buffer]:::CommandBufferOperators
+    CommitCommandBuffer --> End([End of draw method]):::EndOfDrawMethod
+
 ```
 
 ---
@@ -724,12 +857,13 @@ classDiagram
     %% Shaders
     class MTLLibrary
     MetalState --> MTLLibrary : makeDefaultLibrary()
-    MTLLibrary --> VertexFunction : makeFunction(name: "main_vertex_for_2D_view")
-    MTLLibrary --> FragmentFunction : makeFunction(name: "main_fragment_for_2D_view")
+    MTLLibrary --> VertexFunction : makeFunction(name "main_vertex_for_2D_view")
+    MTLLibrary --> FragmentFunction : makeFunction(name "main_fragment_for_2D_view")
 
     MetalState --> MTLRenderPipelineDescriptor : descriptor
     MTLRenderPipelineDescriptor --> VertexFunction
     MTLRenderPipelineDescriptor --> FragmentFunction
+    
 ```
 
 **Explanation:**
