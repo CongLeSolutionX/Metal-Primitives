@@ -1048,30 +1048,49 @@ This diagram shows the steps involved in initializing the `MetalState` object.
 
 ```mermaid
 flowchart TD
-    Start([Start MetalState.init])
-	Start --> CheckLibrary{Make Default Library?}
+%%%%%% Define styles
+%% Define style for crtitical points on the flowchart
+classDef Decision fill:#F7E6,stroke:#FBBC05,stroke-width:2px
+classDef StartEndInitialization fill:#119F00, stroke:#333, stroke-width:2px
+classDef ReturnNil fill:#7222F1, stroke:#34A853, stroke-width:2px
+
+%% Define style for question
+classDef CheckLibrary fill:#ff0000, stroke:#333, stroke-width:2px
+classDef CheckPipelineState fill:#ff0000, stroke:#333, stroke-width:2px
+classDef CheckBuffer fill:#ff0000, stroke:#333, stroke-width:2px
+
+%% Define style for operators
+classDef PipelineStateOperators fill:#00008B, stroke:#333, stroke-width:1px
+classDef VertexBufferOperators fill:#8B8000, stroke:#333, stroke-width:1px
+classDef OtherCommandOperators fill:#2F23, stroke:#333, stroke-width:1px
+
+
+%%%%%% Starting the flowchart
+    Start([Start MetalState.init]):::StartEndInitialization
+	Start --> CheckLibrary{Make Default Library?}:::CheckLibrary
     CheckLibrary -- No --> ReturnNil[Return nil]
-    CheckLibrary -- Yes --> GetFunctions[Get Vertex and Fragment Functions]
+    CheckLibrary -- Yes --> GetFunctions[Get Vertex and Fragment Functions]:::PipelineStateOperators
     
     
-    CreateDescriptor[Create Render Pipeline Descriptor]
+    CreateDescriptor[Create Render Pipeline Descriptor]:::PipelineStateOperators
 
 	GetFunctions -->  CreateDescriptor
 
-    CreatePipelineState[Create Render Pipeline State]
+    CreatePipelineState[Create Render Pipeline State]:::PipelineStateOperators
 	
 	CreateDescriptor -->  CreatePipelineState
     
-    CreatePipelineState --> CheckPipelineState{Pipeline State Created?}
+    CreatePipelineState --> CheckPipelineState{Pipeline State Created?}:::CheckPipelineState
 
     CheckPipelineState -- No --> ReturnNil
-    CheckPipelineState -- Yes --> CreateVertices[Create Vertex Data]
-    CreateVertices --> CreateBuffer[Create Vertex Buffer]
-    CreateBuffer --> CheckBuffer{Buffer Created?}
-    CheckBuffer -- No --> ReturnNil
-    CheckBuffer -- Yes --> InitLayerPointer[Initialize Layer Pointer]
-    InitLayerPointer --> InitLock[Initialize NSLock]
-    InitLock --> End([End Initialization])
+    CheckPipelineState -- Yes --> CreateVertices[Create Vertex Data]:::VertexBufferOperators
+    CreateVertices --> CreateBuffer[Create Vertex Buffer]:::VertexBufferOperators
+    CreateBuffer --> CheckBuffer{Buffer Created?}:::CheckBuffer
+    CheckBuffer -- No --> ReturnNil:::ReturnNil
+    CheckBuffer -- Yes --> InitLayerPointer[Initialize Layer Pointer]:::OtherCommandOperators
+    InitLayerPointer --> InitLock[Initialize NSLock]:::OtherCommandOperators
+    InitLock --> End([End Initialization]):::StartEndInitialization
+    
 ```
 
 **Explanation:**
