@@ -40,6 +40,7 @@ In this documentation, we will provide a comprehensive set of diagrams and illus
   - [16. Shader Structures and Render Pipeline Diagram](#16-shader-structures-and-render-pipeline-diagram)
     - [Timing and Rendering Synchronization with `FrameTimer`](#timing-and-rendering-synchronization-with-frametimer)
     - [Data Flow Diagram of Vertex Data Setup](#data-flow-diagram-of-vertex-data-setup)
+    - [Activity Diagram of `MetalState` Initialization](#activity-diagram-of-metalstate-initialization)
   - [17. Thread Safety and Synchronization Diagram](#17-thread-safety-and-synchronization-diagram)
   - [Conclusion](#conclusion)
 
@@ -1039,6 +1040,44 @@ flowchart LR
 - The total length is calculated based on the number of vertices and the size of the struct.
 - A `MTLBuffer` is created with the vertex data and labeled.
 - The buffer is set in the render command encoder for use in the vertex shader.
+
+
+### Activity Diagram of `MetalState` Initialization
+
+This diagram shows the steps involved in initializing the `MetalState` object.
+
+```mermaid
+flowchart TD
+    Start([Start MetalState.init])
+    CheckLibrary{Make Default Library?}
+    CheckLibrary -- No --> ReturnNil[Return nil]
+    CheckLibrary -- Yes --> GetFunctions[Get Vertex and Fragment Functions]
+    CreateDescriptor[Create Render Pipeline Descriptor]
+    CreatePipelineState[Create Render Pipeline State]
+    CreatePipelineState --> CheckPipelineState{Pipeline State Created?}
+    CheckPipelineState -- No --> ReturnNil
+    CheckPipelineState -- Yes --> CreateVertices[Create Vertex Data]
+    CreateVertices --> CreateBuffer[Create Vertex Buffer]
+    CreateBuffer --> CheckBuffer{Buffer Created?}
+    CheckBuffer -- No --> ReturnNil
+    CheckBuffer -- Yes --> InitLayerPointer[Initialize Layer Pointer]
+    InitLayerPointer --> InitLock[Initialize NSLock]
+    InitLock --> End([End Initialization])
+```
+
+**Explanation:**
+
+- The `MetalState` initializer first attempts to create the default Metal library.
+- It retrieves the vertex and fragment functions needed for the pipeline.
+- A render pipeline descriptor is created using these functions.
+- The render pipeline state is created from the descriptor.
+- Vertex data for the triangle is created and stored in a buffer.
+- An unsafe pointer to the `CAMetalLayer` is allocated.
+- An `NSLock` is initialized for thread safety.
+- If any step fails, the initializer returns `nil`, indicating failure.
+
+
+
 
 
 ---
