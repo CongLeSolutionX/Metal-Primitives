@@ -35,7 +35,10 @@ In this documentation, we will provide a comprehensive set of diagrams and illus
     - [Platform-Specific Implementation Flowchart](#platform-specific-implementation-flowchart)
   - [14. CAMetal2DView Initialization and Rendering Sequence Diagram](#14-cametal2dview-initialization-and-rendering-sequence-diagram)
   - [15. CAMetal2DView Draw Method Flowchart](#15-cametal2dview-draw-method-flowchart)
+    - [Expanded Class Diagram with `FrameTimer` and Rendering Pipeline](#expanded-class-diagram-with-frametimer-and-rendering-pipeline)
   - [16. Shader Structures and Render Pipeline Diagram](#16-shader-structures-and-render-pipeline-diagram)
+    - [Timing and Rendering Synchronization with `FrameTimer`](#timing-and-rendering-synchronization-with-frametimer)
+    - [Data Flow Diagram of Vertex Data Setup](#data-flow-diagram-of-vertex-data-setup)
   - [17. Thread Safety and Synchronization Diagram](#17-thread-safety-and-synchronization-diagram)
   - [Conclusion](#conclusion)
 
@@ -837,6 +840,58 @@ flowchart TD
 
 ```
 
+
+### Expanded Class Diagram with `FrameTimer` and Rendering Pipeline
+
+This diagram goes deeper into how the `FrameTimer`, shaders, and rendering pipeline are set up and used.
+
+```mermaid
+classDiagram
+    class CAMetal2DView {
+        +state: MetalState
+        +draw(now: Double, frame: Double)
+    }
+    CAMetal2DView --> MetalState
+    CAMetal2DView --> FrameTimer : uses
+
+    class MetalState {
+        +device: MTLDevice
+        +queue: MTLCommandQueue
+        +pipeline: MTLRenderPipelineState
+        +buffer: MTLBuffer
+        +layer: CAMetalLayer
+        +timer: FrameTimer?
+    }
+    MetalState --> MTLDevice
+    MetalState --> MTLCommandQueue
+    MetalState --> MTLRenderPipelineState
+    MetalState --> MTLBuffer
+    MetalState --> CAMetalLayer
+    MetalState --> FrameTimer
+
+    class ShaderLibrary
+    MTLDevice --> ShaderLibrary : makeDefaultLibrary()
+    ShaderLibrary --> VertexFunction : main_vertex_for_2D_view
+    ShaderLibrary --> FragmentFunction : main_fragment_for_2D_view
+    MTLRenderPipelineDescriptor --> VertexFunction
+    MTLRenderPipelineDescriptor --> FragmentFunction
+
+    MTLRenderPipelineDescriptor --> MTLRenderPipelineState : makeRenderPipelineState()
+
+    class MTLRenderPipelineDescriptor {
+        +vertexFunction
+        +fragmentFunction
+        +colorAttachments[0].pixelFormat
+    }
+```
+
+**Explanation:**
+
+- The `MetalState` initializes the Metal pipeline by obtaining the default shader library from the device and setting up the vertex and fragment functions.
+- It creates a `MTLRenderPipelineDescriptor`, sets the functions and pixel format, and creates the `MTLRenderPipelineState`.
+- The `FrameTimer` is used to synchronize the rendering with the display's refresh rate, calling the `draw` method on each frame.
+
+
 ---
 
 ## 16. Shader Structures and Render Pipeline Diagram
@@ -863,7 +918,7 @@ classDiagram
     MetalState --> MTLRenderPipelineDescriptor : descriptor
     MTLRenderPipelineDescriptor --> VertexFunction
     MTLRenderPipelineDescriptor --> FragmentFunction
-    
+
 ```
 
 **Explanation:**
@@ -872,6 +927,76 @@ classDiagram
 - `MTLBuffer` holds the vertex data.
 - The Metal library loads the shader functions used in the render pipeline.
 - The pipeline descriptor references the vertex and fragment shader functions.
+
+
+
+### Timing and Rendering Synchronization with `FrameTimer`
+
+This sequence diagram illustrates how the `FrameTimer` is used to synchronize rendering with the display's refresh rate.
+
+```mermaid
+sequenceDiagram
+    participant View as CAMetal2DView
+    participant State as MetalState
+    participant Timer as FrameTimer
+    participant Display
+
+    View->>State: Initialize MetalState
+    View->>State: Set timer to nil
+    View->>View: didMoveToWindow / viewDidMoveToWindow
+    View->>State: Set up layer properties
+    State->>State: Set timer with FrameTimer
+    Timer-->>View: draw(now, frame)
+    View->>Display: Render frame
+    loop Every Frame
+        Display-->>Timer: VSync Signal
+        Timer-->>View: draw(now, frame)
+        View->>Display: Render frame
+    end
+```
+
+**Explanation:**
+
+- When the view moves to the window, it initializes the `FrameTimer` in the `MetalState`.
+- The `FrameTimer` invokes the `draw(now:frame:)` method on every display refresh (VSync).
+- This ensures smooth frame updates synchronized with the display's refresh rate.
+- The rendering loop continues as long as the timer is active.
+
+
+
+---
+
+### Data Flow Diagram of Vertex Data Setup
+
+This diagram shows how the vertex data is set up and supplied to the vertex shader.
+
+```mermaid
+flowchart LR
+    Start[Start_Initialization]
+    --> CreateVertices[Create Vertices Array]
+    --> CalculateLength[Calculate Buffer Length]
+    --> CreateBuffer[Create MTLBuffer with Vertex Data]
+    --> SetBufferLabel[Set Buffer Label]
+    --> UseBuffer[Use Buffer in Encoder]
+    --> VertexShader[Vertex Shader Receives Data]
+
+    subgraph Vertex_Data [Vertex_Data]
+        ShaderVertexFor2DView1((Top Vertex))
+        ShaderVertexFor2DView2((Left Vertex))
+        ShaderVertexFor2DView3((Right Vertex))
+    end
+
+    CreateVertices --> Vertex_Data
+```
+
+**Explanation:**
+
+- An array of `ShaderVertexFor2DView` structs is created, representing the vertices of a triangle.
+- Each vertex includes position and color data.
+- The total length is calculated based on the number of vertices and the size of the struct.
+- A `MTLBuffer` is created with the vertex data and labeled.
+- The buffer is set in the render command encoder for use in the vertex shader.
+
 
 ---
 
