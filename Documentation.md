@@ -1049,12 +1049,21 @@ This diagram shows the steps involved in initializing the `MetalState` object.
 ```mermaid
 flowchart TD
     Start([Start MetalState.init])
-    CheckLibrary{Make Default Library?}
+	Start --> CheckLibrary{Make Default Library?}
     CheckLibrary -- No --> ReturnNil[Return nil]
     CheckLibrary -- Yes --> GetFunctions[Get Vertex and Fragment Functions]
+    
+    
     CreateDescriptor[Create Render Pipeline Descriptor]
+
+	GetFunctions -->  CreateDescriptor
+
     CreatePipelineState[Create Render Pipeline State]
+	
+	CreateDescriptor -->  CreatePipelineState
+    
     CreatePipelineState --> CheckPipelineState{Pipeline State Created?}
+
     CheckPipelineState -- No --> ReturnNil
     CheckPipelineState -- Yes --> CreateVertices[Create Vertex Data]
     CreateVertices --> CreateBuffer[Create Vertex Buffer]
