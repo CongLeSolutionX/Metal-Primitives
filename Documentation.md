@@ -31,11 +31,12 @@ In this documentation, we will provide a comprehensive set of diagrams and illus
   - [12. Core Graphics Extensions and Iterators Diagram](#12-core-graphics-extensions-and-iterators-diagram)
   - [13. CAMetal2DView Class Diagram](#13-cametal2dview-class-diagram)
     - [Class Diagram of `CAMetal2DView` and `MetalState`](#class-diagram-of-cametal2dview-and-metalstate)
+    - [Code Architecture Emphasizing Protocols and Extensions](#code-architecture-emphasizing-protocols-and-extensions)
+    - [Expanded Class Diagram with `FrameTimer` and Rendering Pipeline](#expanded-class-diagram-with-frametimer-and-rendering-pipeline)
     - [High-Level Overview of Cross-Platform Support](#high-level-overview-of-cross-platform-support)
     - [Platform-Specific Implementation Flowchart](#platform-specific-implementation-flowchart)
   - [14. CAMetal2DView Initialization and Rendering Sequence Diagram](#14-cametal2dview-initialization-and-rendering-sequence-diagram)
   - [15. CAMetal2DView Draw Method Flowchart](#15-cametal2dview-draw-method-flowchart)
-    - [Expanded Class Diagram with `FrameTimer` and Rendering Pipeline](#expanded-class-diagram-with-frametimer-and-rendering-pipeline)
   - [16. Shader Structures and Render Pipeline Diagram](#16-shader-structures-and-render-pipeline-diagram)
     - [Timing and Rendering Synchronization with `FrameTimer`](#timing-and-rendering-synchronization-with-frametimer)
     - [Data Flow Diagram of Vertex Data Setup](#data-flow-diagram-of-vertex-data-setup)
@@ -712,6 +713,100 @@ classDiagram
 ---
 
 
+### Code Architecture Emphasizing Protocols and Extensions
+
+This diagram highlights how protocols and extensions are used to enhance functionality and maintain code clarity.
+
+```mermaid
+classDiagram
+    class ConfigurableReference {
+        <<protocol>>
+        +configure(block: (Self) -> Void) : Self
+    }
+
+    NSObjectProtocol ..|> ConfigurableReference
+    MTLBuffer ..|> ConfigurableReference
+    MTLRenderPassDescriptor ..|> ConfigurableReference
+    CAMetalLayer ..|> ConfigurableReference
+    NSLock ..|> ConfigurableReference
+
+    CAMetal2DView *-- MetalState
+
+    class MetalState {
+        +device: MTLDevice
+        +queue: MTLCommandQueue
+        +pipeline: MTLRenderPipelineState
+        +buffer: MTLBuffer
+        +layer: CAMetalLayer
+        +lock: NSLock
+    }
+    
+```
+
+
+**Explanation:**
+
+- The `ConfigurableReference` protocol provides a `configure` method that allows for inline configuration of objects.
+- Extensions conforming various classes like `MTLBuffer`, `MTLRenderPassDescriptor`, `CAMetalLayer`, and `NSLock` to `ConfigurableReference` enable cleaner and more readable code by chaining configuration calls.
+- This approach enhances code maintainability and expressiveness.
+
+---
+
+
+
+### Expanded Class Diagram with `FrameTimer` and Rendering Pipeline
+
+This diagram goes deeper into how the `FrameTimer`, shaders, and rendering pipeline are set up and used.
+
+```mermaid
+classDiagram
+    class CAMetal2DView {
+        +state: MetalState
+        +draw(now: Double, frame: Double)
+    }
+    CAMetal2DView --> MetalState
+    CAMetal2DView --> FrameTimer : uses
+
+    class MetalState {
+        +device: MTLDevice
+        +queue: MTLCommandQueue
+        +pipeline: MTLRenderPipelineState
+        +buffer: MTLBuffer
+        +layer: CAMetalLayer
+        +timer: FrameTimer?
+    }
+    MetalState --> MTLDevice
+    MetalState --> MTLCommandQueue
+    MetalState --> MTLRenderPipelineState
+    MetalState --> MTLBuffer
+    MetalState --> CAMetalLayer
+    MetalState --> FrameTimer
+
+    class ShaderLibrary
+    MTLDevice --> ShaderLibrary : makeDefaultLibrary()
+    ShaderLibrary --> VertexFunction : main_vertex_for_2D_view
+    ShaderLibrary --> FragmentFunction : main_fragment_for_2D_view
+    MTLRenderPipelineDescriptor --> VertexFunction
+    MTLRenderPipelineDescriptor --> FragmentFunction
+
+    MTLRenderPipelineDescriptor --> MTLRenderPipelineState : makeRenderPipelineState()
+
+    class MTLRenderPipelineDescriptor {
+        +vertexFunction
+        +fragmentFunction
+        +colorAttachments[0].pixelFormat
+    }
+```
+
+**Explanation:**
+
+- The `MetalState` initializes the Metal pipeline by obtaining the default shader library from the device and setting up the vertex and fragment functions.
+- It creates a `MTLRenderPipelineDescriptor`, sets the functions and pixel format, and creates the `MTLRenderPipelineState`.
+- The `FrameTimer` is used to synchronize the rendering with the display's refresh rate, calling the `draw` method on each frame.
+
+---
+
+
 ### High-Level Overview of Cross-Platform Support
 
 This diagram highlights how `CAMetal2DView` handles cross-platform support using conditional compilation.
@@ -839,58 +934,6 @@ flowchart TD
     CommitCommandBuffer --> End([End of draw method]):::EndOfDrawMethod
 
 ```
-
-
-### Expanded Class Diagram with `FrameTimer` and Rendering Pipeline
-
-This diagram goes deeper into how the `FrameTimer`, shaders, and rendering pipeline are set up and used.
-
-```mermaid
-classDiagram
-    class CAMetal2DView {
-        +state: MetalState
-        +draw(now: Double, frame: Double)
-    }
-    CAMetal2DView --> MetalState
-    CAMetal2DView --> FrameTimer : uses
-
-    class MetalState {
-        +device: MTLDevice
-        +queue: MTLCommandQueue
-        +pipeline: MTLRenderPipelineState
-        +buffer: MTLBuffer
-        +layer: CAMetalLayer
-        +timer: FrameTimer?
-    }
-    MetalState --> MTLDevice
-    MetalState --> MTLCommandQueue
-    MetalState --> MTLRenderPipelineState
-    MetalState --> MTLBuffer
-    MetalState --> CAMetalLayer
-    MetalState --> FrameTimer
-
-    class ShaderLibrary
-    MTLDevice --> ShaderLibrary : makeDefaultLibrary()
-    ShaderLibrary --> VertexFunction : main_vertex_for_2D_view
-    ShaderLibrary --> FragmentFunction : main_fragment_for_2D_view
-    MTLRenderPipelineDescriptor --> VertexFunction
-    MTLRenderPipelineDescriptor --> FragmentFunction
-
-    MTLRenderPipelineDescriptor --> MTLRenderPipelineState : makeRenderPipelineState()
-
-    class MTLRenderPipelineDescriptor {
-        +vertexFunction
-        +fragmentFunction
-        +colorAttachments[0].pixelFormat
-    }
-```
-
-**Explanation:**
-
-- The `MetalState` initializes the Metal pipeline by obtaining the default shader library from the device and setting up the vertex and fragment functions.
-- It creates a `MTLRenderPipelineDescriptor`, sets the functions and pixel format, and creates the `MTLRenderPipelineState`.
-- The `FrameTimer` is used to synchronize the rendering with the display's refresh rate, calling the `draw` method on each frame.
-
 
 ---
 
