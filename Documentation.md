@@ -46,6 +46,12 @@ In this documentation, we will provide a comprehensive set of diagrams and illus
 This diagram provides an overview of the entire app's architecture, highlighting the conditional compilation for iOS and macOS platforms and how different views are integrated.
 
 ```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 graph TD
     %% Define styles
     classDef iOS fill:#43F6,stroke:#4285F4
@@ -99,6 +105,12 @@ graph TD
 This class diagram illustrates the overall structure of the app, focusing on the relationships between the main app entry point, SwiftUI views, and UIKit/AppKit view controllers.
 
 ```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 classDiagram
     %% Main App Entry Point
     class MetalPrimitivesApp {
@@ -141,6 +153,12 @@ classDiagram
 This diagram shows how the SwiftUI views, UIKit/AppKit view controllers, and Objective-C view controllers interact.
 
 ```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 classDiagram
 
     %% SwiftUI Views
@@ -202,6 +220,12 @@ classDiagram
 This sequence diagram illustrates the flow of control during the app's initialization, highlighting how views and view controllers are created and connected.
 
 ```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 sequenceDiagram
     autonumber
     participant App as MetalPrimitivesApp
@@ -241,6 +265,12 @@ sequenceDiagram
 This diagram shows the relationship between the Metal views and their respective renderers.
 
 ```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 classDiagram
     %% SwiftUI Representable Views
     class Metal3DViewRepresentable {
@@ -308,6 +338,12 @@ classDiagram
 The following sequence diagram demonstrates how the Metal views are created and rendered within the app, showcasing the interaction between SwiftUI, `UIViewRepresentable`, and the Metal rendering pipeline.
 
 ```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 sequenceDiagram
     autonumber
     participant SwiftUI as SwiftUI View
@@ -343,6 +379,12 @@ sequenceDiagram
 This flowchart demonstrates how the code handles platform-specific view creation using conditional compilation.
 
 ```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 flowchart TD
     %% Define styles
     classDef ProcessStep fill:#F7E6,stroke:#FBBC05
@@ -379,6 +421,12 @@ flowchart TD
 The class diagram below shows how extensions and utilities are designed to add functionality to existing structures like `CGPoint`, `CGSize`, and `CGRect`.
 
 ```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 classDiagram
     %% Core Graphics Structures
     class CGPoint {
@@ -433,6 +481,12 @@ classDiagram
 This flowchart outlines the steps involved in the `CAMetalPlainView`'s rendering process.
 
 ```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 flowchart TD
     %% Define styles
     classDef ProcessStep fill:#E6F4,stroke:#34A853
@@ -468,6 +522,12 @@ flowchart TD
 This class diagram shows the hierarchy and relationships between custom Metal views and their UIKit/AppKit counterparts, emphasizing the shared logic across platforms.
 
 ```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 classDiagram
     %% Base Classes
     class CAMetalPlainView
@@ -517,6 +577,12 @@ classDiagram
 The class diagram below illustrates how protocols and extensions are used to provide configurable references across different types, enhancing code reusability and readability.
 
 ```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 classDiagram
     %% Protocol
     class ConfigurableReference {
@@ -547,6 +613,12 @@ classDiagram
 This class diagram demonstrates how custom iterators are implemented for `CGPoint`, `CGSize`, and `CGRect`, enabling them to conform to `Sequence` and various literal protocols.
 
 ```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 classDiagram
     %% Core Graphics Structures
     class CGPoint {
@@ -595,6 +667,12 @@ classDiagram
 This diagram shows the class hierarchy and composition of `CAMetal2DView` and its inner class `MetalState`.
 
 ```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 classDiagram
     %% Base Class
     class CAMetal2DView {
@@ -663,6 +741,12 @@ classDiagram
 This diagram shows the class hierarchy and composition of `CAMetal2DView` and its inner class `MetalState`.
 
 ```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 classDiagram
     %% Platform-Specific Classes
     class CAMetal2DView {
@@ -714,6 +798,12 @@ classDiagram
 This diagram highlights how protocols and extensions are used to enhance functionality and maintain code clarity.
 
 ```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 classDiagram
     class ConfigurableReference {
         <<protocol>>
@@ -755,6 +845,12 @@ classDiagram
 This diagram goes deeper into how the `FrameTimer`, shaders, and rendering pipeline are set up and used.
 
 ```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 classDiagram
     class CAMetal2DView {
         +state: MetalState
@@ -808,6 +904,12 @@ classDiagram
 This diagram highlights how `CAMetal2DView` handles cross-platform support using conditional compilation.
 
 ```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 graph TD
     CAMetal2DView
     CAMetal2DView -->|"#if os(macOS)"| CAMetal2DViewMac
@@ -833,9 +935,15 @@ graph TD
 This flowchart shows the conditional compilation and platform-specific implementations in `CAMetal2DView`.
 
 ```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 flowchart TD
     Start([Start])
-    CheckPlatform{Is Platform iOS?}
+    Start --> CheckPlatform{Is Platform iOS?}
     CheckPlatform -- Yes --> UseUIView[Subclass UIView]
     UseUIView --> OverrideLayerClass
     UseUIView --> didMoveToWindow["Override didMoveToWindow()"]
@@ -845,6 +953,7 @@ flowchart TD
     UseNSView --> viewDidMoveToWindow["Override viewDidMoveToWindow()"]
     UseNSView --> setBoundsSize["Override setBoundsSize()"]
     UseNSView --> setFrameSize["Override setFrameSize()"]
+    
     Both --> InitializeState[Initialize MetalState]
     
 ```
@@ -864,6 +973,12 @@ flowchart TD
 This diagram shows the sequence of events during initialization and the rendering loop of `CAMetal2DView`.
 
 ```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 sequenceDiagram
     autonumber
     participant View as CAMetal2DView
@@ -904,6 +1019,12 @@ sequenceDiagram
 This flowchart details the steps taken within the `draw(now: frame:)` method during each frame of rendering.
 
 ```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 flowchart TD
     %% Define styles
     classDef EndOfDrawMethod fill:#64EA,stroke:#34A853
@@ -938,6 +1059,12 @@ flowchart TD
 This class diagram illustrates the `ShaderVertexFor2DView` struct and its role in the rendering pipeline.
 
 ```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 classDiagram
     class ShaderVertexFor2DView {
         +position: SIMD4<Float>
@@ -974,6 +1101,12 @@ classDiagram
 This sequence diagram illustrates how the `FrameTimer` is used to synchronize rendering with the display's refresh rate.
 
 ```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 sequenceDiagram
     participant View as CAMetal2DView
     participant State as MetalState
@@ -1010,6 +1143,12 @@ sequenceDiagram
 This diagram shows how the vertex data is set up and supplied to the vertex shader.
 
 ```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 flowchart LR
     Start[Start_Initialization]
     --> CreateVertices[Create Vertices Array]
@@ -1042,6 +1181,12 @@ flowchart LR
 This diagram shows the steps involved in initializing the `MetalState` object.
 
 ```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 flowchart TD
 %%%%%% Define styles
 %% Define style for crtitical points on the flowchart
@@ -1098,9 +1243,6 @@ classDef OtherCommandOperators fill:#2F23, stroke:#333, stroke-width:1px
 - An unsafe pointer to the `CAMetalLayer` is allocated.
 - An `NSLock` is initialized for thread safety.
 - If any step fails, the initializer returns `nil`, indicating failure.
-
-
-
 
 
 ---
