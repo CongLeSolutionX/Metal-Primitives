@@ -47,6 +47,12 @@ The project also incorporates cross-platform support from [dehesa/sample-metal](
 This diagram provides an overview of the entire app's architecture, highlighting the conditional compilation for iOS and macOS platforms and how different views are integrated.
 
 ```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 graph TD
     %% Define styles
     classDef iOS fill:#43F6,stroke:#4285F4
@@ -100,6 +106,12 @@ graph TD
 This class diagram illustrates the overall structure of the app, focusing on the relationships between the main app entry point, SwiftUI views, and UIKit/AppKit view controllers.
 
 ```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 classDiagram
     %% Main App Entry Point
     class MetalPrimitivesApp {
@@ -188,6 +200,12 @@ To help visualize the architecture and flow of each example, we've included **Me
 This diagram shows the relationship between the Metal views and their respective renderers.
 
 ```mermaid
+---
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 classDiagram
     %% SwiftUI Representable Views
     class Metal3DViewRepresentable {
