@@ -11,15 +11,15 @@ import UIKit
 
 // UIViewControllerRepresentable implementation
 struct iOS_ViewControllerRepresentable: UIViewControllerRepresentable {
-    typealias UIViewControllerType = ObjC_MetalPlainViewController_UIKitWrapperViewController
+    typealias UIViewControllerType = ARKitViewController
     
     // Required methods implementation
-    func makeUIViewController(context: Context) -> ObjC_MetalPlainViewController_UIKitWrapperViewController {
+    func makeUIViewController(context: Context) -> ARKitViewController {
         // Instantiate and return the UIKit view controller
-        return ObjC_MetalPlainViewController_UIKitWrapperViewController()
+        return ARKitViewController()
     }
     
-    func updateUIViewController(_ uiViewController: ObjC_MetalPlainViewController_UIKitWrapperViewController, context: Context) {
+    func updateUIViewController(_ uiViewController: ARKitViewController, context: Context) {
         // Update the view controller if needed
     }
 }

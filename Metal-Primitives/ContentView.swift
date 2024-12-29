@@ -19,18 +19,18 @@ struct iOS_SwiftUI_RootContentView: View {  /// presenting this view to the App 
 // Before iOS 17, use this syntax for preview UIKit view controller
 struct iOSUIKitViewControllerWrapper_Previews: PreviewProvider {
     static var previews: some View {
-            MetalTexturingViewRepresentable()
-            MetalLightingViewRepresentable()
-            Metal3DViewRepresentable()
-            Metal2DViewRepresentable()
-            MetalPlainViewRepresentable() //  preview the view through protocol `UIViewRepresentable`
+            //MetalTexturingViewRepresentable()
+            //MetalLightingViewRepresentable()
+            //Metal3DViewRepresentable()
+            //Metal2DViewRepresentable()
+            //MetalPlainViewRepresentable() //  preview the view through protocol `UIViewRepresentable`
             iOS_ViewControllerRepresentable() // preview the view through protocol `ViewControlerRepresentable`
     }
 }
 
 // After iOS 17, we can use this syntax for preview:
 #Preview("iOS SwiftUI RootContentView") {
-    iOS_SwiftUI_RootContentView()
+    //iOS_SwiftUI_RootContentView()
 }
 
 #elseif os(macOS)
