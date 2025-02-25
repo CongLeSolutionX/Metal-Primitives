@@ -51,7 +51,7 @@ config:
     }
   }
 }%%
-graph TD
+graph LR
     A["Metal-Primitives Project"] --> B{"Platform"}
     B --> C["iOS"]
     B --> D["macOS"]
