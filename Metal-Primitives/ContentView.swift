@@ -21,10 +21,10 @@ struct iOSUIKitViewControllerWrapper_Previews: PreviewProvider {
     static var previews: some View {
             MetalTexturingViewRepresentable()
             MetalLightingViewRepresentable()
-            Metal3DViewRepresentable()
-            Metal2DViewRepresentable()
-            MetalPlainViewRepresentable() //  preview the view through protocol `UIViewRepresentable`
-            iOS_ViewControllerRepresentable() // preview the view through protocol `ViewControlerRepresentable`
+            //Metal3DViewRepresentable()
+            //Metal2DViewRepresentable()
+            //MetalPlainViewRepresentable() //  preview the view through protocol `UIViewRepresentable`
+//            iOS_ViewControllerRepresentable() // preview the view through protocol `ViewControlerRepresentable`
     }
 }
 
