@@ -51,7 +51,7 @@ config:
     }
   }
 }%%
-graph LR
+graph TD
     A["Metal-Primitives Project"] --> B{"Platform"}
     B --> C["iOS"]
     B --> D["macOS"]
@@ -74,24 +74,11 @@ graph LR
     D --> S["FrameTimer.swift"]
     D --> T["SIMD+Extensions.swift"]
 
-    style C fill:#f29f,stroke:#333,stroke-width:2px
-    style D fill:#c539,stroke:#333,stroke-width:2px
-    style E fill:#c539,stroke:#333,stroke-width:1px
-    style F fill:#c539,stroke:#333,stroke-width:1px
-    style G fill:#c539,stroke:#333,stroke-width:1px
-    style H fill:#c539,stroke:#333,stroke-width:1px
-    style I fill:#c539,stroke:#333,stroke-width:1px
-    style J fill:#c539,stroke:#333,stroke-width:1px
-    style K fill:#c539,stroke:#333,stroke-width:1px
-    style L fill:#c539,stroke:#333,stroke-width:1px
-    style M fill:#c539,stroke:#333,stroke-width:1px
-    style N fill:#c539,stroke:#333,stroke-width:1px
-    style O fill:#c539,stroke:#333,stroke-width:1px
-    style P fill:#c539,stroke:#333,stroke-width:1px
-    style Q fill:#c539,stroke:#333,stroke-width:1px
-    style R fill:#c539,stroke:#333,stroke-width:1px
-    style S fill:#c539,stroke:#333,stroke-width:1px
-    style T fill:#c539,stroke:#333,stroke-width:1px
+    classDef iOS_Style fill:#f455,stroke:#333,stroke-width:2px
+    class C,E,F,G,H,I,J,K iOS_Style
+
+    classDef macOS_Style fill:#f955,stroke:#333,stroke-width:2px
+    class D,L,M,N,O,P,Q,R,S,T macOS_Style
 
     click E "https://developer.apple.com/documentation/swiftui/app"
     click F "https://developer.apple.com/documentation/swiftui/viewrepresentable"
