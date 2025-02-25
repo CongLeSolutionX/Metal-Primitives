@@ -75,23 +75,23 @@ graph LR
     D --> T["SIMD+Extensions.swift"]
 
     style C fill:#f29f,stroke:#333,stroke-width:2px
-    style D fill:#c2cf,stroke:#333,stroke-width:2px
-    style E fill:#c2cf,stroke:#333,stroke-width:1px
-    style F fill:#c2cf,stroke:#333,stroke-width:1px
-    style G fill:#c2cf,stroke:#333,stroke-width:1px
-    style H fill:#c2cf,stroke:#333,stroke-width:1px
-    style I fill:#c2cf,stroke:#333,stroke-width:1px
-    style J fill:#c2cf,stroke:#333,stroke-width:1px
-    style K fill:#c2cf,stroke:#333,stroke-width:1px
-    style L fill:#c2cf,stroke:#333,stroke-width:1px
-    style M fill:#c2cf,stroke:#333,stroke-width:1px
-    style N fill:#c2cf,stroke:#333,stroke-width:1px
-    style O fill:#c2cf,stroke:#333,stroke-width:1px
-    style P fill:#c2cf,stroke:#333,stroke-width:1px
-    style Q fill:#c2cf,stroke:#333,stroke-width:1px
-    style R fill:#c2cf,stroke:#333,stroke-width:1px
-    style S fill:#c2cf,stroke:#333,stroke-width:1px
-    style T fill:#c2cf,stroke:#333,stroke-width:1px
+    style D fill:#c539,stroke:#333,stroke-width:2px
+    style E fill:#c539,stroke:#333,stroke-width:1px
+    style F fill:#c539,stroke:#333,stroke-width:1px
+    style G fill:#c539,stroke:#333,stroke-width:1px
+    style H fill:#c539,stroke:#333,stroke-width:1px
+    style I fill:#c539,stroke:#333,stroke-width:1px
+    style J fill:#c539,stroke:#333,stroke-width:1px
+    style K fill:#c539,stroke:#333,stroke-width:1px
+    style L fill:#c539,stroke:#333,stroke-width:1px
+    style M fill:#c539,stroke:#333,stroke-width:1px
+    style N fill:#c539,stroke:#333,stroke-width:1px
+    style O fill:#c539,stroke:#333,stroke-width:1px
+    style P fill:#c539,stroke:#333,stroke-width:1px
+    style Q fill:#c539,stroke:#333,stroke-width:1px
+    style R fill:#c539,stroke:#333,stroke-width:1px
+    style S fill:#c539,stroke:#333,stroke-width:1px
+    style T fill:#c539,stroke:#333,stroke-width:1px
 
     click E "https://developer.apple.com/documentation/swiftui/app"
     click F "https://developer.apple.com/documentation/swiftui/viewrepresentable"
