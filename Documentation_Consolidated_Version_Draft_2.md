@@ -208,22 +208,24 @@ config:
   }
 }%%
 graph LR
-    A[Swift Project] --> B[Objective-C Code];
-    B --> C[ObjCMetalPlainViewController];
-    B --> D[ObjCCAMetalPlainView];
-    A --> E[Metal-Primitives-Bridging-Header.h];
-    E --> C;
-    E --> D;
-    A --> F[SwiftUI Views];
-    F --> G[ObjCMetalPlainViewControllerRepresentable];
-    G --> C;
-    style A fill:#f39f,stroke:#333,stroke-width:2px
-    style B fill:#c539,stroke:#333,stroke-width:2px
-    style C fill:#c539,stroke:#333,stroke-width:1px
-    style D fill:#c539,stroke:#333,stroke-width:1px
-    style E fill:#c539,stroke:#333,stroke-width:1px
-    style F fill:#c539,stroke:#333,stroke-width:1px
-    style G fill:#c539,stroke:#333,stroke-width:1px
+    A[Swift Project] --> B[Objective-C Code]
+    B --> C[ObjCMetalPlainViewController]
+    B --> D[ObjCCAMetalPlainView]
+    A --> E[Metal-Primitives-Bridging-Header.h]
+    E --> C
+    E --> D
+    A --> F[SwiftUI Views]
+    F --> G[ObjCMetalPlainViewControllerRepresentable]
+    G --> C
+
+    classDef Style_for_Swift_Code fill:#f129,stroke:#333,stroke-width:2px
+    class F,G Style_for_Swift_Code
+   
+    classDef Style_for_Bridging_Header_File fill:#f455,stroke:#333,stroke-width:2px
+    class E Style_for_Bridging_Header_File
+
+    classDef Style_for_ObjC_code fill:#f3f4,stroke:#333,stroke-width:2px
+    class B,D,C Style_for_ObjC_code
 
 ```
 
