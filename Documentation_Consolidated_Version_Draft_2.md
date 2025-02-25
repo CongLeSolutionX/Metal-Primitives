@@ -487,14 +487,8 @@ graph LR
     G --> H["User Interaction"]
     H -- Changes --> F
 
-    style A fill:#f39f,stroke:#333,stroke-width:2px
-    style B fill:#c539,stroke:#333,stroke-width:1px
-    style C fill:#c539,stroke:#333,stroke-width:1px
-    style D fill:#c539,stroke:#333,stroke-width:1px
-    style E fill:#c539,stroke:#333,stroke-width:1px
-    style F fill:#c539,stroke:#333,stroke-width:1px
-    style G fill:#c539,stroke:#333,stroke-width:1px
-    style H fill:#c539,stroke:#333,stroke-width:1px
+classDef Style_for_Swift_Code fill:#f129,stroke:#333,stroke-width:2px
+class A Style_for_Swift_Code
 
 ```
 
