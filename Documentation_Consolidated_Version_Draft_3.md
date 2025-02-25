@@ -41,7 +41,7 @@ config:
     }
   }
 }%%
-graph TD
+graph LR
     subgraph Shared["Shared<br>(Swift)"]
         A1[CAMetal2DView.swift]
         A2[CAMetal3DView.swift]
