@@ -154,8 +154,9 @@ graph LR
     classDef Metal fill:#fff4,stroke:#333,stroke-width:2px
     class B Metal
 
-    classDef ARKit fill:#f3f4,stroke:#333,stroke-width:2px
-    class L ARKit
+    
+    classDef Style_for_ARKit_Framework fill:#1555,stroke:#333,stroke-width:2px
+    class L Style_for_ARKit_Framework
 
     classDef CAMetalLayer fill:#f455,stroke:#333,stroke-width:2px
     class C,D,E,F,G,H CAMetalLayer
@@ -297,7 +298,7 @@ graph LR
 
 
     classDef Style_for_Swift_Code fill:#f129,stroke:#333,stroke-width:2px
-    class L,G Style_for_Swift_Code
+    class B,L,G Style_for_Swift_Code
 
     classDef Style_for_Bridging_Header_File fill:#f455,stroke:#333,stroke-width:2px
     
@@ -377,17 +378,8 @@ graph LR
     I --> K["Create SphereAnchor"]
     B --> K
 
-    style A fill:#f39f,stroke:#333,stroke-width:2px
-    style B fill:#c539,stroke:#333,stroke-width:2px
-    style C fill:#c539,stroke:#333,stroke-width:1px
-    style D fill:#c539,stroke:#333,stroke-width:1px
-    style E fill:#c539,stroke:#333,stroke-width:1px
-    style F fill:#c539,stroke:#333,stroke-width:1px
-    style G fill:#c539,stroke:#333,stroke-width:1px
-    style H fill:#c539,stroke:#333,stroke-width:1px
-    style I fill:#c539,stroke:#333,stroke-width:1px
-    style J fill:#c539,stroke:#333,stroke-width:1px
-    style K fill:#c539,stroke:#333,stroke-width:1px
+    classDef Style_for_ARKit_Framework fill:#1555,stroke:#333,stroke-width:2px
+    class A Style_for_ARKit_Framework
 
     click A "https://developer.apple.com/documentation/arkit"
     click B "https://developer.apple.com/documentation/arkit/arsession"
