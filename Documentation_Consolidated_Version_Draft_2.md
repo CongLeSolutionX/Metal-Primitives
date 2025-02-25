@@ -112,7 +112,7 @@ The project uses several different approaches to render the graphics.
 
 ```mermaid
 ---
-title: Rendering Architectures
+title: Rendering Approaches
 config:
   layout: elk
   look: handDrawn
@@ -139,29 +139,33 @@ graph LR
     C --> F["3D View<br>(Cube)"]
     C --> G["Lighting View<br>(Teapot)"]
     C --> H["Texturing View<br>(Cow)"]
+    
     B --> I[MTKView]
     I --> J["Lighting View<br>(Teapot)"]
     I --> K["Texturing View<br>(Cow)"]
 
     A --> L{ARKit}
+
     L --> M[ARSCNView]
     M --> N[Sphere Anchors]
     M --> O[Plane Detection]
 
-    style B fill:#f39f,stroke:#333,stroke-width:2px
-    style L fill:#c539,stroke:#333,stroke-width:2px
-    style C fill:#c539,stroke:#333,stroke-width:1px
-    style I fill:#c539,stroke:#333,stroke-width:1px
-    style D fill:#c539,stroke:#333,stroke-width:1px
-    style E fill:#c539,stroke:#333,stroke-width:1px
-    style F fill:#c539,stroke:#333,stroke-width:1px
-    style G fill:#c539,stroke:#333,stroke-width:1px
-    style H fill:#c539,stroke:#333,stroke-width:1px
-    style J fill:#c539,stroke:#333,stroke-width:1px
-    style K fill:#c539,stroke:#333,stroke-width:1px
-    style M fill:#c539,stroke:#333,stroke-width:1px
-    style N fill:#c539,stroke:#333,stroke-width:1px
-    style O fill:#c539,stroke:#333,stroke-width:1px
+
+    classDef Metal fill:#fff4,stroke:#333,stroke-width:2px
+    class B Metal
+
+    classDef ARKit fill:#f3f4,stroke:#333,stroke-width:2px
+    class L ARKit
+
+    classDef CAMetalLayer fill:#f455,stroke:#333,stroke-width:2px
+    class C,D,E,F,G,H CAMetalLayer
+    
+    
+    classDef MTKView fill:#f955,stroke:#333,stroke-width:2px
+    class I,J,K MTKView
+
+    classDef ARSCNView fill:#f129,stroke:#333,stroke-width:2px
+    class M,N,O ARSCNView
 
 ```
 
