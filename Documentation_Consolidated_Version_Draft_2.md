@@ -29,18 +29,21 @@ This project demonstrates various Metal rendering techniques and integrations wi
 *   **SwiftUI Integration:** Uses SwiftUI `Representable` to embed UIKit/AppKit views.
 *   **Objective-C Interoperability:** Utilizes Objective-C code ( `ObjCMetalPlainViewController`, `ObjCCAMetalPlainView` ) within a Swift project.
 
-**Diagram 1: Project Structure**
 
 ```mermaid
+---
+title: Project Structure
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 %%{
   init: {
-    'theme': 'default',
-    'layout': 'elk',
-    'look': 'handDrawn',
     'fontFamily': 'verdana',
     'themeVariables': {
       'primaryColor': '#BB2528',
-      'primaryTextColor': '#fff',
+      'primaryTextColor': '#f529',
       'primaryBorderColor': '#7C0000',
       'lineColor': '#F8B229',
       'secondaryColor': '#006100',
@@ -71,24 +74,24 @@ graph LR
     D --> S["FrameTimer.swift"]
     D --> T["SIMD+Extensions.swift"]
 
-    style C fill:#f9f,stroke:#333,stroke-width:2px
-    style D fill:#ccf,stroke:#333,stroke-width:2px
-    style E fill:#ccf,stroke:#333,stroke-width:1px
-    style F fill:#ccf,stroke:#333,stroke-width:1px
-    style G fill:#ccf,stroke:#333,stroke-width:1px
-    style H fill:#ccf,stroke:#333,stroke-width:1px
-    style I fill:#ccf,stroke:#333,stroke-width:1px
-    style J fill:#ccf,stroke:#333,stroke-width:1px
-    style K fill:#ccf,stroke:#333,stroke-width:1px
-    style L fill:#ccf,stroke:#333,stroke-width:1px
-    style M fill:#ccf,stroke:#333,stroke-width:1px
-    style N fill:#ccf,stroke:#333,stroke-width:1px
-    style O fill:#ccf,stroke:#333,stroke-width:1px
-    style P fill:#ccf,stroke:#333,stroke-width:1px
-    style Q fill:#ccf,stroke:#333,stroke-width:1px
-    style R fill:#ccf,stroke:#333,stroke-width:1px
-    style S fill:#ccf,stroke:#333,stroke-width:1px
-    style T fill:#ccf,stroke:#333,stroke-width:1px
+    style C fill:#f29f,stroke:#333,stroke-width:2px
+    style D fill:#c2cf,stroke:#333,stroke-width:2px
+    style E fill:#c2cf,stroke:#333,stroke-width:1px
+    style F fill:#c2cf,stroke:#333,stroke-width:1px
+    style G fill:#c2cf,stroke:#333,stroke-width:1px
+    style H fill:#c2cf,stroke:#333,stroke-width:1px
+    style I fill:#c2cf,stroke:#333,stroke-width:1px
+    style J fill:#c2cf,stroke:#333,stroke-width:1px
+    style K fill:#c2cf,stroke:#333,stroke-width:1px
+    style L fill:#c2cf,stroke:#333,stroke-width:1px
+    style M fill:#c2cf,stroke:#333,stroke-width:1px
+    style N fill:#c2cf,stroke:#333,stroke-width:1px
+    style O fill:#c2cf,stroke:#333,stroke-width:1px
+    style P fill:#c2cf,stroke:#333,stroke-width:1px
+    style Q fill:#c2cf,stroke:#333,stroke-width:1px
+    style R fill:#c2cf,stroke:#333,stroke-width:1px
+    style S fill:#c2cf,stroke:#333,stroke-width:1px
+    style T fill:#c2cf,stroke:#333,stroke-width:1px
 
     click E "https://developer.apple.com/documentation/swiftui/app"
     click F "https://developer.apple.com/documentation/swiftui/viewrepresentable"
@@ -119,18 +122,21 @@ graph LR
 
 The project uses several different approaches to render the graphics.
 
-**Diagram 2: Rendering Approaches**
 
 ```mermaid
+---
+title: Rendering Architectures
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 %%{
   init: {
-    'theme': 'default',
-    'layout': 'elk',
-    'look': 'handDrawn',
     'fontFamily': 'verdana',
     'themeVariables': {
       'primaryColor': '#BB2528',
-      'primaryTextColor': '#fff',
+      'primaryTextColor': '#f529',
       'primaryBorderColor': '#7C0000',
       'lineColor': '#F8B229',
       'secondaryColor': '#006100',
@@ -155,20 +161,20 @@ graph LR
     M --> N[Sphere Anchors]
     M --> O[Plane Detection]
 
-    style B fill:#f9f,stroke:#333,stroke-width:2px
-    style L fill:#ccf,stroke:#333,stroke-width:2px
-    style C fill:#ccf,stroke:#333,stroke-width:1px
-    style I fill:#ccf,stroke:#333,stroke-width:1px
-    style D fill:#ccf,stroke:#333,stroke-width:1px
-    style E fill:#ccf,stroke:#333,stroke-width:1px
-    style F fill:#ccf,stroke:#333,stroke-width:1px
-    style G fill:#ccf,stroke:#333,stroke-width:1px
-    style H fill:#ccf,stroke:#333,stroke-width:1px
-    style J fill:#ccf,stroke:#333,stroke-width:1px
-    style K fill:#ccf,stroke:#333,stroke-width:1px
-    style M fill:#ccf,stroke:#333,stroke-width:1px
-    style N fill:#ccf,stroke:#333,stroke-width:1px
-    style O fill:#ccf,stroke:#333,stroke-width:1px
+    style B fill:#f39f,stroke:#333,stroke-width:2px
+    style L fill:#c3cf,stroke:#333,stroke-width:2px
+    style C fill:#c3cf,stroke:#333,stroke-width:1px
+    style I fill:#c3cf,stroke:#333,stroke-width:1px
+    style D fill:#c3cf,stroke:#333,stroke-width:1px
+    style E fill:#c3cf,stroke:#333,stroke-width:1px
+    style F fill:#c3cf,stroke:#333,stroke-width:1px
+    style G fill:#c3cf,stroke:#333,stroke-width:1px
+    style H fill:#c3cf,stroke:#333,stroke-width:1px
+    style J fill:#c3cf,stroke:#333,stroke-width:1px
+    style K fill:#c3cf,stroke:#333,stroke-width:1px
+    style M fill:#c3cf,stroke:#333,stroke-width:1px
+    style N fill:#c3cf,stroke:#333,stroke-width:1px
+    style O fill:#c3cf,stroke:#333,stroke-width:1px
 
 ```
 
@@ -189,18 +195,20 @@ graph LR
 
 The project demonstrates how to integrate Objective-C code into a Swift project.
 
-**Diagram 3: Swift and Objective-C Interaction**
-
 ```mermaid
+---
+title: Swift and Objective-C Interaction
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 %%{
   init: {
-    'theme': 'default',
-    'layout': 'elk',
-    'look': 'handDrawn',
     'fontFamily': 'verdana',
     'themeVariables': {
       'primaryColor': '#BB2528',
-      'primaryTextColor': '#fff',
+      'primaryTextColor': '#f529',
       'primaryBorderColor': '#7C0000',
       'lineColor': '#F8B229',
       'secondaryColor': '#006100',
@@ -218,13 +226,13 @@ graph LR
     A --> F[SwiftUI Views];
     F --> G[ObjCMetalPlainViewControllerRepresentable];
     G --> C;
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style B fill:#ccf,stroke:#333,stroke-width:2px
-    style C fill:#ccf,stroke:#333,stroke-width:1px
-    style D fill:#ccf,stroke:#333,stroke-width:1px
-    style E fill:#ccf,stroke:#333,stroke-width:1px
-    style F fill:#ccf,stroke:#333,stroke-width:1px
-    style G fill:#ccf,stroke:#333,stroke-width:1px
+    style A fill:#f39f,stroke:#333,stroke-width:2px
+    style B fill:#c3cf,stroke:#333,stroke-width:2px
+    style C fill:#c3cf,stroke:#333,stroke-width:1px
+    style D fill:#c3cf,stroke:#333,stroke-width:1px
+    style E fill:#c3cf,stroke:#333,stroke-width:1px
+    style F fill:#c3cf,stroke:#333,stroke-width:1px
+    style G fill:#c3cf,stroke:#333,stroke-width:1px
 
 ```
 
@@ -245,18 +253,21 @@ graph LR
 
 ## 5.  Key Components and Relationships
 
-**Diagram 4:  Core Data Flow**
 
 ```mermaid
+---
+title: Core Data Flow
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 %%{
   init: {
-    'theme': 'default',
-    'layout': 'elk',
-    'look': 'handDrawn',
     'fontFamily': 'verdana',
     'themeVariables': {
       'primaryColor': '#BB2528',
-      'primaryTextColor': '#fff',
+      'primaryTextColor': '#f529',
       'primaryBorderColor': '#7C0000',
       'lineColor': '#F8B229',
       'secondaryColor': '#006100',
@@ -290,23 +301,24 @@ graph LR
         J --> Q[Fragment Shader];
     end
 
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style B fill:#ccf,stroke:#333,stroke-width:2px
-    style C fill:#ccf,stroke:#333,stroke-width:1px
-    style D fill:#ccf,stroke:#333,stroke-width:1px
-    style E fill:#ccf,stroke:#333,stroke-width:1px
-    style F fill:#ccf,stroke:#333,stroke-width:1px
-    style G fill:#ccf,stroke:#333,stroke-width:1px
-    style H fill:#ccf,stroke:#333,stroke-width:1px
-    style I fill:#ccf,stroke:#333,stroke-width:1px
-    style J fill:#ccf,stroke:#333,stroke-width:1px
-    style K fill:#ccf,stroke:#333,stroke-width:1px
-    style L fill:#ccf,stroke:#333,stroke-width:1px
-    style M fill:#ccf,stroke:#333,stroke-width:1px
-    style N fill:#ccf,stroke:#333,stroke-width:1px
-    style O fill:#ccf,stroke:#333,stroke-width:1px
-    style P fill:#ccf,stroke:#333,stroke-width:1px
-    style Q fill:#ccf,stroke:#333,stroke-width:1px
+    style A fill:#f39f,stroke:#333,stroke-width:2px
+    style B fill:#c3cf,stroke:#333,stroke-width:2px
+    style C fill:#c3cf,stroke:#333,stroke-width:1px
+    style D fill:#c3cf,stroke:#333,stroke-width:1px
+    style E fill:#c3cf,stroke:#333,stroke-width:1px
+    style F fill:#c3cf,stroke:#333,stroke-width:1px
+    style G fill:#c3cf,stroke:#333,stroke-width:1px
+    style H fill:#c3cf,stroke:#333,stroke-width:1px
+    style I fill:#c3cf,stroke:#333,stroke-width:1px
+    style J fill:#c3cf,stroke:#333,stroke-width:1px
+    style K fill:#c3cf,stroke:#333,stroke-width:1px
+    style L fill:#c3cf,stroke:#333,stroke-width:1px
+    style M fill:#c3cf,stroke:#333,stroke-width:1px
+    style N fill:#c3cf,stroke:#333,stroke-width:1px
+    style O fill:#c3cf,stroke:#333,stroke-width:1px
+    style P fill:#c3cf,stroke:#333,stroke-width:1px
+    style Q fill:#c3cf,stroke:#333,stroke-width:1px
+
     click A "https://developer.apple.com/documentation/swiftui/app"
     click B "https://developer.apple.com/documentation/swiftui/view"
     click C "https://developer.apple.com/documentation/swiftui/view"
@@ -335,18 +347,20 @@ graph LR
 
 ## 6. ARKit Workflow
 
-**Diagram 5: ARKit Workflow**
-
 ```mermaid
+---
+title: ARKit Workflow
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 %%{
   init: {
-    'theme': 'default',
-    'layout': 'elk',
-    'look': 'handDrawn',
     'fontFamily': 'verdana',
     'themeVariables': {
       'primaryColor': '#BB2528',
-      'primaryTextColor': '#fff',
+      'primaryTextColor': '#f529',
       'primaryBorderColor': '#7C0000',
       'lineColor': '#F8B229',
       'secondaryColor': '#006100',
@@ -367,17 +381,17 @@ graph LR
     I --> K["Create SphereAnchor"]
     B --> K
 
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style B fill:#ccf,stroke:#333,stroke-width:2px
-    style C fill:#ccf,stroke:#333,stroke-width:1px
-    style D fill:#ccf,stroke:#333,stroke-width:1px
-    style E fill:#ccf,stroke:#333,stroke-width:1px
-    style F fill:#ccf,stroke:#333,stroke-width:1px
-    style G fill:#ccf,stroke:#333,stroke-width:1px
-    style H fill:#ccf,stroke:#333,stroke-width:1px
-    style I fill:#ccf,stroke:#333,stroke-width:1px
-    style J fill:#ccf,stroke:#333,stroke-width:1px
-    style K fill:#ccf,stroke:#333,stroke-width:1px
+    style A fill:#f39f,stroke:#333,stroke-width:2px
+    style B fill:#c3cf,stroke:#333,stroke-width:2px
+    style C fill:#c3cf,stroke:#333,stroke-width:1px
+    style D fill:#c3cf,stroke:#333,stroke-width:1px
+    style E fill:#c3cf,stroke:#333,stroke-width:1px
+    style F fill:#c3cf,stroke:#333,stroke-width:1px
+    style G fill:#c3cf,stroke:#333,stroke-width:1px
+    style H fill:#c3cf,stroke:#333,stroke-width:1px
+    style I fill:#c3cf,stroke:#333,stroke-width:1px
+    style J fill:#c3cf,stroke:#333,stroke-width:1px
+    style K fill:#c3cf,stroke:#333,stroke-width:1px
 
     click A "https://developer.apple.com/documentation/arkit"
     click B "https://developer.apple.com/documentation/arkit/arsession"
@@ -403,18 +417,21 @@ graph LR
 
 ## 7. Metal Rendering Pipeline (Simplified)
 
-**Diagram 6: Metal Rendering Pipeline**
 
 ```mermaid
+---
+title: Metal Rendering Pipeline
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 %%{
   init: {
-    'theme': 'default',
-    'layout': 'elk',
-    'look': 'handDrawn',
     'fontFamily': 'verdana',
     'themeVariables': {
       'primaryColor': '#BB2528',
-      'primaryTextColor': '#fff',
+      'primaryTextColor': '#f529',
       'primaryBorderColor': '#7C0000',
       'lineColor': '#F8B229',
       'secondaryColor': '#006100',
@@ -431,14 +448,14 @@ graph LR
     F --> G[Blending]
     G --> H[Frame Buffer]
 
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style B fill:#ccf,stroke:#333,stroke-width:1px
-    style C fill:#ccf,stroke:#333,stroke-width:1px
-    style D fill:#ccf,stroke:#333,stroke-width:1px
-    style E fill:#ccf,stroke:#333,stroke-width:1px
-    style F fill:#ccf,stroke:#333,stroke-width:1px
-    style G fill:#ccf,stroke:#333,stroke-width:1px
-    style H fill:#ccf,stroke:#333,stroke-width:1px
+    style A fill:#f39f,stroke:#333,stroke-width:2px
+    style B fill:#c3cf,stroke:#333,stroke-width:1px
+    style C fill:#c3cf,stroke:#333,stroke-width:1px
+    style D fill:#c3cf,stroke:#333,stroke-width:1px
+    style E fill:#c3cf,stroke:#333,stroke-width:1px
+    style F fill:#c3cf,stroke:#333,stroke-width:1px
+    style G fill:#c3cf,stroke:#333,stroke-width:1px
+    style H fill:#c3cf,stroke:#333,stroke-width:1px
 
 ```
 
@@ -456,18 +473,21 @@ graph LR
 
 ## 8. SwiftUI Lifecycle (Simplified)
 
-**Diagram 7: SwiftUI Lifecycle (Simplified)**
 
 ```mermaid
+---
+title: SwiftUI Lifecycle (Simplified)
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 %%{
   init: {
-    'theme': 'default',
-    'layout': 'elk',
-    'look': 'handDrawn',
     'fontFamily': 'verdana',
     'themeVariables': {
       'primaryColor': '#BB2528',
-      'primaryTextColor': '#fff',
+      'primaryTextColor': '#f529',
       'primaryBorderColor': '#7C0000',
       'lineColor': '#F8B229',
       'secondaryColor': '#006100',
@@ -485,14 +505,14 @@ graph LR
     G --> H["User Interaction"]
     H -- Changes --> F
 
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style B fill:#ccf,stroke:#333,stroke-width:1px
-    style C fill:#ccf,stroke:#333,stroke-width:1px
-    style D fill:#ccf,stroke:#333,stroke-width:1px
-    style E fill:#ccf,stroke:#333,stroke-width:1px
-    style F fill:#ccf,stroke:#333,stroke-width:1px
-    style G fill:#ccf,stroke:#333,stroke-width:1px
-    style H fill:#ccf,stroke:#333,stroke-width:1px
+    style A fill:#f39f,stroke:#333,stroke-width:2px
+    style B fill:#c3cf,stroke:#333,stroke-width:1px
+    style C fill:#c3cf,stroke:#333,stroke-width:1px
+    style D fill:#c3cf,stroke:#333,stroke-width:1px
+    style E fill:#c3cf,stroke:#333,stroke-width:1px
+    style F fill:#c3cf,stroke:#333,stroke-width:1px
+    style G fill:#c3cf,stroke:#333,stroke-width:1px
+    style H fill:#c3cf,stroke:#333,stroke-width:1px
 
 ```
 
@@ -511,15 +531,19 @@ graph LR
 ## 9. Code Compilation and Linking
 
 ```mermaid
+---
+title: Code Compilation and Linking
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
+---
 %%{
   init: {
-    'theme': 'default',
-    'layout': 'elk',
-    'look': 'handDrawn',
     'fontFamily': 'verdana',
     'themeVariables': {
       'primaryColor': '#BB2528',
-      'primaryTextColor': '#fff',
+      'primaryTextColor': '#f529',
       'primaryBorderColor': '#7C0000',
       'lineColor': '#F8B229',
       'secondaryColor': '#006100',
@@ -533,11 +557,11 @@ graph LR
     C --> D["Linker"]
     D --> E["Executable (.app)"]
 
-    style A fill:#f9f,stroke:#333,stroke-width:2px
-    style B fill:#ccf,stroke:#333,stroke-width:1px
-    style C fill:#ccf,stroke:#333,stroke-width:1px
-    style D fill:#ccf,stroke:#333,stroke-width:1px
-    style E fill:#ccf,stroke:#333,stroke-width:1px
+    style A fill:#f39f,stroke:#333,stroke-width:2px
+    style B fill:#c3cf,stroke:#333,stroke-width:1px
+    style C fill:#c3cf,stroke:#333,stroke-width:1px
+    style D fill:#c3cf,stroke:#333,stroke-width:1px
+    style E fill:#c3cf,stroke:#333,stroke-width:1px
     
 ```
 
