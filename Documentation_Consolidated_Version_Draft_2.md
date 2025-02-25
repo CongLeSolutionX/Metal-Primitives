@@ -436,14 +436,8 @@ graph LR
     F --> G[Blending]
     G --> H[Frame Buffer]
 
-    style A fill:#f39f,stroke:#333,stroke-width:2px
-    style B fill:#c539,stroke:#333,stroke-width:1px
-    style C fill:#c539,stroke:#333,stroke-width:1px
-    style D fill:#c539,stroke:#333,stroke-width:1px
-    style E fill:#c539,stroke:#333,stroke-width:1px
-    style F fill:#c539,stroke:#333,stroke-width:1px
-    style G fill:#c539,stroke:#333,stroke-width:1px
-    style H fill:#c539,stroke:#333,stroke-width:1px
+classDef Metal_Rendering_Pipeline fill:#ff45,stroke:#333,stroke-width:2px
+class A Metal_Rendering_Pipeline
 
 ```
 
