@@ -21,6 +21,10 @@ copyright: Copyright (c) 2025 Cong Le. All Rights Reserved.
 This mindmap will illustrate the high-level components of the project and their relationships, providing a bird's-eye view.
 
 ```mermaid
+---
+config:
+  theme: dark
+---
 mindmap
   root((Metal-Primitives Project))
     Core_Technologies
@@ -93,16 +97,17 @@ This flowchart illustrates the common steps in the Metal rendering pipeline used
 ```mermaid
 ---
 title: Metal Rendering Pipeline Flowchart
+config:
+  layout: elk
+  look: handDrawn
+  theme: dark
 ---
 %%{
   init: {
-    'theme': 'darks',
-    'layout': 'elk',
-    'look': 'handDrawn',
     'fontFamily': 'verdana',
     'themeVariables': {
       'primaryColor': '#BB2528',
-      'primaryTextColor': '#fff',
+      'primaryTextColor': '#f333',
       'primaryBorderColor': '#7C0000',
       'lineColor': '#F8B229',
       'secondaryColor': '#006100',
@@ -143,9 +148,9 @@ flowchart LR
     H --> I
 
     style Metal_Setup fill:#f911,stroke:#333,stroke-width:1px
-    style Per_Frame_Operations fill:#ccf,stroke:#333,stroke-width:1px
-    style Encoding_Commands fill:#aaf,stroke:#333,stroke-width:1px
-    style Presentation fill:#bbf,stroke:#333,stroke-width:1px
+    style Per_Frame_Operations fill:#c3cf,stroke:#333,stroke-width:1px
+    style Encoding_Commands fill:#a229,stroke:#333,stroke-width:1px
+    style Presentation fill:#b229,stroke:#333,stroke-width:1px
     
 ```
 
@@ -176,7 +181,7 @@ config:
     'fontFamily': 'verdana',
     'themeVariables': {
       'primaryColor': '#BB2528',
-      'primaryTextColor': '#fff',
+      'primaryTextColor': '#f339',
       'primaryBorderColor': '#7C0000',
       'lineColor': '#F8B229',
       'secondaryColor': '#006100',
@@ -348,13 +353,13 @@ This sequence diagram illustrates the interaction flow when the user taps the AR
 ---
 title: ARKit Session and Sphere Placement Sequence Diagram
 config:
-  theme: default
+  theme: dark
 ---
 sequenceDiagram
     autonumber
     actor User
 
-    box rgb(20, 220, 255) ARKit Session and Sphere Placement Sequence 
+    box rgb(20, 90, 255) ARKit Session and Sphere Placement Sequence 
         participant ARKitViewController
         participant ARSceneRendererDelegate
         participant ARSession
@@ -515,7 +520,7 @@ title: Language Interoperability Component Class Diagram
 config:
   layout: elk
   look: handDrawn
-  theme: default
+  theme: dark
 ---
 %%{
   init: {
@@ -650,14 +655,14 @@ title: Data Flow in 3D Rendering
 config:
   layout: elk
   look: handDrawn
-  theme: default
+  theme: dark
 ---
 %%{
   init: {
     'fontFamily': 'verdana',
     'themeVariables': {
       'primaryColor': '#BB2528',
-      'primaryTextColor': '#fff',
+      'primaryTextColor': '#f529',
       'primaryBorderColor': '#7C0000',
       'lineColor': '#F8B229',
       'secondaryColor': '#006100',
@@ -694,10 +699,10 @@ flowchart LR
     E --> Shader_Data_Input
     Rendering_Pipeline --> Shader_Output
 
-    style Data_Preparation fill:#eee,stroke:#333,stroke-width:1px
-    style Rendering_Pipeline fill:#dee,stroke:#333,stroke-width:1px
-    style Shader_Data_Input fill:#ced,stroke:#333,stroke-width:1px
-    style Shader_Output fill:#bbe,stroke:#333,stroke-width:1px
+    style Data_Preparation fill:#e399,stroke:#333,stroke-width:1px
+    style Rendering_Pipeline fill:#d223,stroke:#333,stroke-width:1px
+    style Shader_Data_Input fill:#c2ed,stroke:#333,stroke-width:1px
+    style Shader_Output fill:#b3be,stroke:#333,stroke-width:1px
     
 ```
 
