@@ -269,48 +269,51 @@ config:
   }
 }%%
 graph LR
-    A[MetalPrimitivesApp] --> B[SwiftUI Root View];
-    B --> C{Platform};
-    C --> D[iOS];
-    C --> E[macOS];
+    A[MetalPrimitivesApp] --> B[SwiftUI Root View]
+    B --> C{Platform}
+    C --> D[iOS]
+    C --> E[macOS]
 
-    D --> F[iOS_SwiftUI_RootContentView];
-    F --> G[ObjCMetalPlainViewControllerRepresentable];
-    G --> H[ObjCMetalPlainViewController];
-    H --> I[ObjCCAMetalPlainView];
-    I --> J[CAMetalLayer];
+    D --> F[iOS_SwiftUI_RootContentView]
+    F --> G[ObjCMetalPlainViewControllerRepresentable]
+    G --> H[ObjCMetalPlainViewController]
+    H --> I[ObjCCAMetalPlainView]
+    I --> J[CAMetalLayer]
 
-    E --> K[macOS_SwiftUI_RootContentView];
-    K --> L[MetalPlainViewControllerRepresentable];
-    L --> H;
-    H --> I;
-    I --> J;
+    E --> K[macOS_SwiftUI_RootContentView]
+    K --> L[MetalPlainViewControllerRepresentable]
+    L --> H
+    H --> I
+    I --> J
 
     subgraph Metal_Rendering_Simplified["Metal Rendering<br>(Simplified)"]
-        J --> M[Metal Device];
-        J --> N[Command Queue];
-        J --> O[Render Pipeline];
-        J --> P[Vertex Data];
-        J --> Q[Fragment Shader];
+    style Metal_Rendering_Simplified fill:#ff45,stroke:#333,stroke-width:2px
+        J --> M[Metal Device]
+        J --> N[Command Queue]
+        J --> O[Render Pipeline]
+        J --> P[Vertex Data]
+        J --> Q[Fragment Shader]
     end
 
-    style A fill:#f39f,stroke:#333,stroke-width:2px
-    style B fill:#c539,stroke:#333,stroke-width:2px
-    style C fill:#c539,stroke:#333,stroke-width:1px
-    style D fill:#c539,stroke:#333,stroke-width:1px
-    style E fill:#c539,stroke:#333,stroke-width:1px
-    style F fill:#c539,stroke:#333,stroke-width:1px
-    style G fill:#c539,stroke:#333,stroke-width:1px
-    style H fill:#c539,stroke:#333,stroke-width:1px
-    style I fill:#c539,stroke:#333,stroke-width:1px
-    style J fill:#c539,stroke:#333,stroke-width:1px
-    style K fill:#c539,stroke:#333,stroke-width:1px
-    style L fill:#c539,stroke:#333,stroke-width:1px
-    style M fill:#c539,stroke:#333,stroke-width:1px
-    style N fill:#c539,stroke:#333,stroke-width:1px
-    style O fill:#c539,stroke:#333,stroke-width:1px
-    style P fill:#c539,stroke:#333,stroke-width:1px
-    style Q fill:#c539,stroke:#333,stroke-width:1px
+
+    classDef Style_for_Swift_Code fill:#f129,stroke:#333,stroke-width:2px
+    class L,G Style_for_Swift_Code
+
+    classDef Style_for_Bridging_Header_File fill:#f455,stroke:#333,stroke-width:2px
+    
+
+    classDef Style_for_ObjC_Code fill:#f3f4,stroke:#333,stroke-width:2px
+    class H,I Style_for_ObjC_Code
+    
+    classDef Style_for_iOS_Platform fill:#f455,stroke:#333,stroke-width:2px
+    class D,F Style_for_iOS_Platform
+
+    classDef Style_for_macOS_Platform fill:#f955,stroke:#333,stroke-width:2px
+    class E,K Style_for_macOS_Platform
+    
+
+    classDef Metal fill:#fff4,stroke:#333,stroke-width:2px
+    
 
     click A "https://developer.apple.com/documentation/swiftui/app"
     click B "https://developer.apple.com/documentation/swiftui/view"
