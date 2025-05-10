@@ -7,8 +7,10 @@ Copyright (c) 2025 Cong Le. All Rights Reserved.
 
 ---
 
-
 This project demonstrates the basic primitives of the Metal framework by Apple, showcasing how to render various graphics using Metal in both **Swift** and **Objective-C**. It serves as an educational resource for developers interested in graphics programming on **iOS** and **macOS** platforms.
+
+----
+
 
 ## Overview
 
@@ -22,6 +24,9 @@ The project covers a range of rendering examples:
 
 Each example is fully programmatic—**no Storyboards, XIBs, or NIBs** are used—providing a clear understanding of the code involved in setting up and rendering Metal views.
 
+---
+
+
 ## Demo
 
 Here is the previews of multiple metal screens rendering on an iOS simulator:
@@ -34,11 +39,17 @@ Here is the previews of multiple metal screens rendering on a macOS simulator:
 
 ![Demo-on-macOS-devices](Resources/Demo-macOS-devices.gif)
 
+---
+
+
 ## Motivation
 
 This project is a migration and enhancement of the code from Warren Moore's book, [*Metal by Example*](https://warrenmoore.net/), originally written in 2015. By updating the code to support the latest versions of Swift and Objective-C, and integrating it with both iOS and macOS platforms, we aim to make Metal's functionalities more accessible to modern developers.
 
 The project also incorporates cross-platform support from [dehesa/sample-metal](https://github.com/dehesa/sample-metal), allowing the examples to run seamlessly on different operating systems and frameworks. By connecting all the code into a single app, we've streamlined the learning experience.
+
+---
+
 
 ## Features
 
@@ -48,6 +59,9 @@ The project also incorporates cross-platform support from [dehesa/sample-metal](
 - **100% Programmatic UI**: No Interface Builder files; all views are created via code for better transparency.
 - **Educational Focus**: Code is well-documented and structured to facilitate learning.
 
+---
+
+
 ## Code Structure
 
 ### High-Level Architecture Diagram
@@ -56,11 +70,34 @@ This diagram provides an overview of the entire app's architecture, highlighting
 
 ```mermaid
 ---
+title: "High-Level Architecture"
+author: "Cong Le"
+version: "1.0"
+license(s): "MIT, CC BY 4.0"
+copyright: "Copyright (c) 2025 Cong Le. All Rights Reserved."
 config:
   layout: elk
-  look: handDrawn
-  theme: dark
+  theme: base
 ---
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%%%%%%% Available curve styles include the following keywords:
+%% basis, bumpX, bumpY, cardinal, catmullRom, linear, monotoneX, monotoneY, natural, step, stepAfter, stepBefore.
+%%{
+  init: {
+    'flowchart': { 'htmlLabels': true, 'curve': 'linear' },
+    'fontFamily': 'Monaco',
+    'themeVariables': {
+      'primaryColor': '#D5F5E3',
+      'primaryTextColor': '#145A32',
+      'lineColor': '#F8B229',
+      'primaryBorderColor': '#27AE60',
+      'secondaryColor': '#EBDEF0',
+      'secondaryTextColor': '#6C3483',
+      'secondaryBorderColor': '#A569BD',
+      'fontSize': '15px'
+    }
+  }
+}%%
 graph TD
     %% Define styles
     classDef iOS fill:#43F6,stroke:#4285F4
@@ -115,11 +152,29 @@ This class diagram illustrates the overall structure of the app, focusing on the
 
 ```mermaid
 ---
+title: "App Structure Overview"
+author: "Cong Le"
+version: "1.0"
+license(s): "MIT, CC BY 4.0"
+copyright: "Copyright (c) 2025 Cong Le. All Rights Reserved."
 config:
-  layout: elk
   look: handDrawn
-  theme: dark
+  theme: base
 ---
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%{
+  init: {
+    'classDiagram': { 'htmlLabels': false},
+    'fontFamily': 'Monospace',
+    'themeVariables': {
+      'primaryColor': '#BB28',
+      'primaryTextColor': '#000',
+      'lineColor': '#F8B229',
+      'primaryBorderColor': '#7C3',
+      'secondaryColor': '#DD15'
+    }
+  }
+}%%
 classDiagram
     %% Main App Entry Point
     class MetalPrimitivesApp {
@@ -158,6 +213,9 @@ classDiagram
 
 For more details and illustrations, please check out [Documentation.md](/Documentation.md).
 
+----
+
+
 ## Getting Started
 
 ### Prerequisites
@@ -189,6 +247,8 @@ For more details and illustrations, please check out [Documentation.md](/Documen
 
    - Press `Cmd + R` to build and run the project on your device or simulator.
 
+----
+
 ## Understanding the Code
 
 ### Programmatic Views
@@ -209,11 +269,29 @@ This diagram shows the relationship between the Metal views and their respective
 
 ```mermaid
 ---
+title: "Metal Views and Renderers Class Diagram"
+author: "Cong Le"
+version: "1.0"
+license(s): "MIT, CC BY 4.0"
+copyright: "Copyright (c) 2025 Cong Le. All Rights Reserved."
 config:
-  layout: elk
   look: handDrawn
-  theme: dark
+  theme: base
 ---
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%{
+  init: {
+    'classDiagram': { 'htmlLabels': false},
+    'fontFamily': 'Monospace',
+    'themeVariables': {
+      'primaryColor': '#BB28',
+      'primaryTextColor': '#000',
+      'lineColor': '#F8B229',
+      'primaryBorderColor': '#7C3',
+      'secondaryColor': '#DD15'
+    }
+  }
+}%%
 classDiagram
     %% SwiftUI Representable Views
     class Metal3DViewRepresentable {
@@ -274,6 +352,8 @@ classDiagram
 - `MetalLightingViewRepresentable` and `MetalTexturingViewRepresentable` use `MTKView` and custom renderers (`TeapotRenderer` and `CowRenderer` respectively).
 - Renderers conform to either `RendererFor3DView` protocol or `MTKViewDelegate`.
 
+----
+
 
 ## Learning Objectives
 
@@ -286,12 +366,19 @@ By exploring this project, you will:
 - **Work with Textures**: Load and apply textures to 3D models for more realistic effects.
 - **Develop Cross-Platform Code**: Write code that runs on both iOS and macOS platforms.
 
+----
+
+
 ## Resources and References
 
 - **Warren Moore's Blog**: [warrenmoore.net](https://warrenmoore.net/)
 - **Metal Official Documentation**: [Apple Developer - Metal](https://developer.apple.com/metal/)
 - **dehesa/sample-metal Repository**: [GitHub - dehesa/sample-metal](https://github.com/dehesa/sample-metal)
 - **Metal by Example Book**: *Metal by Example* by Warren Moore
+
+
+---
+
 
 ## Contributing
 
@@ -318,9 +405,52 @@ We welcome contributions! If you'd like to improve the project, please:
 
 5. **Open a Pull Request**: Submit your changes for review.
 
+
+----
+
+
+
 ## License
 
 - **MIT License:**  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) - Full text in [LICENSE](LICENSE) file.
 - **Creative Commons Attribution 4.0 International:** [![License: CC BY 4.0](https://licensebuttons.net/l/by/4.0/88x31.png)](LICENSE-CC-BY) - Legal details in [LICENSE-CC-BY](LICENSE-CC-BY) and at [Creative Commons official site](http://creativecommons.org/licenses/by/4.0/).
 
+
 ---
+
+```mermaid
+---
+title: "CongLeSolutionX"
+author: "Cong Le"
+version: "1.0"
+license(s): "MIT, CC BY 4.0"
+copyright: "Copyright (c) 2025 Cong Le. All Rights Reserved."
+config:
+  theme: base
+---
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%{
+  init: {
+    'flowchart': { 'htmlLabels': false },
+    'fontFamily': 'Brush Script MT',
+    'themeVariables': {
+      'primaryColor': '#fc82',
+      'primaryTextColor': '#F8B229',
+      'primaryBorderColor': '#27AE60',
+      'secondaryColor': '#81c784',
+      'secondaryTextColor': '#6C3483',
+      'lineColor': '#F8B229',
+      'fontSize': '20px'
+    }
+  }
+}%%
+flowchart LR
+    My_Meme@{ img: "https://github.com/CongLeSolutionX/MY_GRAPHIC_ASSETS/blob/Designing_graphic_syntax/MY_MEME_ICONS/Orange-Cloud-Search-Icon-Base-Color-Black-1024x1024.png?raw=true", label: "Ăn uống gì chưa ngừi đẹp?", pos: "b", w: 200, h: 150, constraint: "on" }
+
+    Closing_quote@{ shape: braces, label: "Math and code work together to bring interactive art to life!" }
+
+My_Meme ~~~ Closing_quote
+
+```
+
+----
