@@ -84,7 +84,7 @@ config:
 %% basis, bumpX, bumpY, cardinal, catmullRom, linear, monotoneX, monotoneY, natural, step, stepAfter, stepBefore.
 %%{
   init: {
-    'flowchart': { 'htmlLabels': true, 'curve': 'linear' },
+    'flowchart': { 'htmlLabels': true, 'curve': 'basis' },
     'fontFamily': 'Monaco',
     'themeVariables': {
       'primaryColor': '#D5F5E3',
@@ -98,7 +98,7 @@ config:
     }
   }
 }%%
-graph TD
+graph LR
     %% Define styles
     classDef iOS fill:#43F6,stroke:#4285F4
     classDef macOS fill:#F4F6,stroke:#34A853
@@ -168,7 +168,7 @@ config:
     'fontFamily': 'Monospace',
     'themeVariables': {
       'primaryColor': '#BB28',
-      'primaryTextColor': '#000',
+      'primaryTextColor': '#FFF',
       'lineColor': '#F8B229',
       'primaryBorderColor': '#7C3',
       'secondaryColor': '#DD15'
@@ -285,7 +285,7 @@ config:
     'fontFamily': 'Monospace',
     'themeVariables': {
       'primaryColor': '#BB28',
-      'primaryTextColor': '#000',
+      'primaryTextColor': '#FFF',
       'lineColor': '#F8B229',
       'primaryBorderColor': '#7C3',
       'secondaryColor': '#DD15'
