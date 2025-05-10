@@ -165,13 +165,14 @@ config:
 %%{
   init: {
     'classDiagram': { 'htmlLabels': false},
-    'fontFamily': 'Monospace',
+    'fontFamily': 'Monaco',
     'themeVariables': {
       'primaryColor': '#BB28',
       'primaryTextColor': '#FFF',
       'lineColor': '#F8B229',
       'primaryBorderColor': '#7C3',
-      'secondaryColor': '#DD15'
+      'secondaryColor': '#DD15',
+      'fontSize': '15px'
     }
   }
 }%%
@@ -282,13 +283,14 @@ config:
 %%{
   init: {
     'classDiagram': { 'htmlLabels': false},
-    'fontFamily': 'Monospace',
+    'fontFamily': 'Monaco',
     'themeVariables': {
       'primaryColor': '#BB28',
       'primaryTextColor': '#FFF',
       'lineColor': '#F8B229',
       'primaryBorderColor': '#7C3',
-      'secondaryColor': '#DD15'
+      'secondaryColor': '#DD15',
+      'fontSize': '15px'
     }
   }
 }%%
