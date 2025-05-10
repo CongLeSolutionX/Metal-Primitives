@@ -19,33 +19,34 @@ In this documentation, we will provide a comprehensive set of diagrams and illus
 ---
 
 ## Table of Contents
-- [Table of Contents](#table-of-contents)
-- [1. High-Level Architecture Diagram](#1-high-level-architecture-diagram)
-- [2. App Structure Overview](#2-app-structure-overview)
-- [3. Class Diagram of View Controllers and Wrappers](#3-class-diagram-of-view-controllers-and-wrappers)
-- [4. App Initialization Sequence Diagram](#4-app-initialization-sequence-diagram)
-- [5. Metal Views and Renderers Class Diagram](#5-metal-views-and-renderers-class-diagram)
-- [6. Metal View Rendering Flow Sequence Diagram](#6-metal-view-rendering-flow-sequence-diagram)
-- [7. Platform-Specific View Creation Flowchart](#7-platform-specific-view-creation-flowchart)
-- [8. Extensions and Utilities Relationships Diagram](#8-extensions-and-utilities-relationships-diagram)
-- [9. Metal Rendering Process Flowchart](#9-metal-rendering-process-flowchart)
-- [10. Metal View Hierarchy and Custom Views Diagram](#10-metal-view-hierarchy-and-custom-views-diagram)
-- [11. Configurable References and Protocol Extensions Diagram](#11-configurable-references-and-protocol-extensions-diagram)
-- [12. Core Graphics Extensions and Iterators Diagram](#12-core-graphics-extensions-and-iterators-diagram)
-- [13. CAMetal2DView Class Diagram](#13-cametal2dview-class-diagram)
-  - [Class Diagram of `CAMetal2DView` and `MetalState`](#class-diagram-of-cametal2dview-and-metalstate)
-  - [Code Architecture Emphasizing Protocols and Extensions](#code-architecture-emphasizing-protocols-and-extensions)
-  - [Expanded Class Diagram with `FrameTimer` and Rendering Pipeline](#expanded-class-diagram-with-frametimer-and-rendering-pipeline)
-  - [High-Level Overview of Cross-Platform Support](#high-level-overview-of-cross-platform-support)
-  - [Platform-Specific Implementation Flowchart](#platform-specific-implementation-flowchart)
-- [14. CAMetal2DView Initialization and Rendering Sequence Diagram](#14-cametal2dview-initialization-and-rendering-sequence-diagram)
-- [15. CAMetal2DView Draw Method Flowchart](#15-cametal2dview-draw-method-flowchart)
-- [16. Shader Structures and Render Pipeline Diagram](#16-shader-structures-and-render-pipeline-diagram)
-  - [Timing and Rendering Synchronization with `FrameTimer`](#timing-and-rendering-synchronization-with-frametimer)
-  - [Data Flow Diagram of Vertex Data Setup](#data-flow-diagram-of-vertex-data-setup)
-  - [Activity Diagram of `MetalState` Initialization](#activity-diagram-of-metalstate-initialization)
-- [17. Thread Safety and Synchronization Diagram](#17-thread-safety-and-synchronization-diagram)
-- [Conclusion](#conclusion)
+- [Documentation](#documentation)
+  - [Table of Contents](#table-of-contents)
+  - [1. High-Level Architecture Diagram](#1-high-level-architecture-diagram)
+  - [2. App Structure Overview](#2-app-structure-overview)
+  - [3. Class Diagram of View Controllers and Wrappers](#3-class-diagram-of-view-controllers-and-wrappers)
+  - [4. App Initialization Sequence Diagram](#4-app-initialization-sequence-diagram)
+  - [5. Metal Views and Renderers Class Diagram](#5-metal-views-and-renderers-class-diagram)
+  - [6. Metal View Rendering Flow Sequence Diagram](#6-metal-view-rendering-flow-sequence-diagram)
+  - [7. Platform-Specific View Creation Flowchart](#7-platform-specific-view-creation-flowchart)
+  - [8. Extensions and Utilities Relationships Diagram](#8-extensions-and-utilities-relationships-diagram)
+  - [9. Metal Rendering Process Flowchart](#9-metal-rendering-process-flowchart)
+  - [10. Metal View Hierarchy and Custom Views Diagram](#10-metal-view-hierarchy-and-custom-views-diagram)
+  - [11. Configurable References and Protocol Extensions Diagram](#11-configurable-references-and-protocol-extensions-diagram)
+  - [12. Core Graphics Extensions and Iterators Diagram](#12-core-graphics-extensions-and-iterators-diagram)
+  - [13. CAMetal2DView Class Diagram](#13-cametal2dview-class-diagram)
+    - [Class Diagram of `CAMetal2DView` and `MetalState`](#class-diagram-of-cametal2dview-and-metalstate)
+    - [Code Architecture Emphasizing Protocols and Extensions](#code-architecture-emphasizing-protocols-and-extensions)
+    - [Expanded Class Diagram with `FrameTimer` and Rendering Pipeline](#expanded-class-diagram-with-frametimer-and-rendering-pipeline)
+    - [High-Level Overview of Cross-Platform Support](#high-level-overview-of-cross-platform-support)
+    - [Platform-Specific Implementation Flowchart](#platform-specific-implementation-flowchart)
+  - [14. CAMetal2DView Initialization and Rendering Sequence Diagram](#14-cametal2dview-initialization-and-rendering-sequence-diagram)
+  - [15. CAMetal2DView Draw Method Flowchart](#15-cametal2dview-draw-method-flowchart)
+  - [16. Shader Structures and Render Pipeline Diagram](#16-shader-structures-and-render-pipeline-diagram)
+    - [Timing and Rendering Synchronization with `FrameTimer`](#timing-and-rendering-synchronization-with-frametimer)
+    - [Data Flow Diagram of Vertex Data Setup](#data-flow-diagram-of-vertex-data-setup)
+    - [Activity Diagram of `MetalState` Initialization](#activity-diagram-of-metalstate-initialization)
+  - [17. Thread Safety and Synchronization Diagram](#17-thread-safety-and-synchronization-diagram)
+  - [Conclusion](#conclusion)
 
 ---
 
@@ -1302,6 +1303,49 @@ These visual aids serve as valuable references for developers looking to explore
 
 
 ---
+
+
+---
+
+```mermaid
+---
+title: "CongLeSolutionX"
+author: "Cong Le"
+version: "1.0"
+license(s): "MIT, CC BY 4.0"
+copyright: "Copyright (c) 2025 Cong Le. All Rights Reserved."
+config:
+  theme: base
+---
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%{
+  init: {
+    'flowchart': { 'htmlLabels': false },
+    'fontFamily': 'Brush Script MT',
+    'themeVariables': {
+      'primaryColor': '#fc82',
+      'primaryTextColor': '#F8B229',
+      'primaryBorderColor': '#27AE60',
+      'secondaryColor': '#81c784',
+      'secondaryTextColor': '#6C3483',
+      'lineColor': '#F8B229',
+      'fontSize': '20px'
+    }
+  }
+}%%
+flowchart LR
+    My_Meme@{ img: "https://github.com/CongLeSolutionX/MY_GRAPHIC_ASSETS/blob/Designing_graphic_syntax/MY_MEME_ICONS/Orange-Cloud-Search-Icon-Base-Color-Black-1024x1024.png?raw=true", label: "Ăn uống gì chưa ngừi đẹp?", pos: "b", w: 200, h: 150, constraint: "on" }
+
+    Closing_quote@{ shape: braces, label: "Math and code work together to bring interactive art to life!" }
+
+My_Meme ~~~ Closing_quote
+
+```
+
+----
+
+
+
 **Licenses:**
 
 - **MIT License:**  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) - Full text in [LICENSE](LICENSE) file.
