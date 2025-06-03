@@ -7,6 +7,16 @@ copyright: Copyright (c) 2025 Cong Le. All Rights Reserved.
 ---
 
 
+> ⚠️🏗️🚧🦺🧱🪵🪨🪚🛠️👷
+> 
+> This is a working draft in progress
+> 
+> ![Loading...](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjllNjMyMGg2Mnl5cDJjZ3F3MTN3bHhrdHR4M3drYXNsbWQ3cTF1ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/FaAxdPWZ7HKGmlnku7/giphy.gif)
+> 
+> ⚠️🏗️🚧🦺🧱🪵🪨🪚🛠️👷
+
+
+----
 
 # Documentation - A Consolidated version - Draft 3
 > This content is dual-licensed under your choice of the following licenses:
