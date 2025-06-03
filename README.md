@@ -211,7 +211,7 @@ classDiagram
 - `ObjCMetalPlainViewController` is an Objective-C view controller that handles Metal rendering.
 
 
-For more details and illustrations, please check out [Documentation.md](/Documentation.md).
+For more details and illustrations, please check out [Documentation.md](/DOCUMENTATIONS/Documentation.md).
 
 ----
 
