@@ -140,11 +140,25 @@ This class diagram illustrates the overall structure of the app, focusing on the
 
 ```mermaid
 ---
+title: "App Structure Overview"
 config:
   layout: elk
   look: handDrawn
-  theme: dark
+  theme: base
 ---
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%{
+  init: {
+    "classDiagram": { "htmlLabels": false },
+    'fontFamily': 'Fantasy',
+    'themeVariables': {
+      'primaryColor': '#B2C3',
+      'primaryTextColor': '#B92',
+      'primaryBorderColor': '#7c2',
+      'lineColor': '#F8B229'
+    }
+  }
+}%%
 classDiagram
     %% Main App Entry Point
     class MetalPrimitivesApp {
@@ -187,12 +201,27 @@ classDiagram
 This diagram shows how the SwiftUI views, UIKit/AppKit view controllers, and Objective-C view controllers interact.
 
 ```mermaid
+
 ---
+title: "Class Diagram of View Controllers and Wrappers"
 config:
   layout: elk
   look: handDrawn
-  theme: dark
+  theme: base
 ---
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%{
+  init: {
+    "classDiagram": { "htmlLabels": false },
+    'fontFamily': 'Fantasy',
+    'themeVariables': {
+      'primaryColor': '#B2C3',
+      'primaryTextColor': '#B92',
+      'primaryBorderColor': '#7c2',
+      'lineColor': '#F8B229'
+    }
+  }
+}%%
 classDiagram
 
     %% SwiftUI Views
@@ -299,12 +328,27 @@ sequenceDiagram
 This diagram shows the relationship between the Metal views and their respective renderers.
 
 ```mermaid
+
 ---
+title: "Metal Views and Renderers"
 config:
   layout: elk
   look: handDrawn
-  theme: dark
+  theme: base
 ---
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%{
+  init: {
+    "classDiagram": { "htmlLabels": false },
+    'fontFamily': 'Fantasy',
+    'themeVariables': {
+      'primaryColor': '#B2C3',
+      'primaryTextColor': '#B92',
+      'primaryBorderColor': '#7c2',
+      'lineColor': '#F8B229'
+    }
+  }
+}%%
 classDiagram
     %% SwiftUI Representable Views
     class Metal3DViewRepresentable {
@@ -480,12 +524,27 @@ flowchart TD
 The class diagram below shows how extensions and utilities are designed to add functionality to existing structures like `CGPoint`, `CGSize`, and `CGRect`.
 
 ```mermaid
+
 ---
+title: "Extensions and Utilities Relationships"
 config:
   layout: elk
   look: handDrawn
-  theme: dark
+  theme: base
 ---
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%{
+  init: {
+    "classDiagram": { "htmlLabels": false },
+    'fontFamily': 'Fantasy',
+    'themeVariables': {
+      'primaryColor': '#B2C3',
+      'primaryTextColor': '#B92',
+      'primaryBorderColor': '#7c2',
+      'lineColor': '#F8B229'
+    }
+  }
+}%%
 classDiagram
     %% Core Graphics Structures
     class CGPoint {
@@ -606,12 +665,27 @@ flowchart TD
 This class diagram shows the hierarchy and relationships between custom Metal views and their UIKit/AppKit counterparts, emphasizing the shared logic across platforms.
 
 ```mermaid
+
 ---
+title: "Metal View Hierarchy and Custom Views"
 config:
   layout: elk
   look: handDrawn
-  theme: dark
+  theme: base
 ---
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%{
+  init: {
+    "classDiagram": { "htmlLabels": false },
+    'fontFamily': 'Fantasy',
+    'themeVariables': {
+      'primaryColor': '#B2C3',
+      'primaryTextColor': '#B92',
+      'primaryBorderColor': '#7c2',
+      'lineColor': '#F8B229'
+    }
+  }
+}%%
 classDiagram
     %% Base Classes
     class CAMetalPlainView
@@ -661,12 +735,27 @@ classDiagram
 The class diagram below illustrates how protocols and extensions are used to provide configurable references across different types, enhancing code reusability and readability.
 
 ```mermaid
+
 ---
+title: "Configurable References and Protocol Extensions"
 config:
   layout: elk
   look: handDrawn
-  theme: dark
+  theme: base
 ---
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%{
+  init: {
+    "classDiagram": { "htmlLabels": false },
+    'fontFamily': 'Fantasy',
+    'themeVariables': {
+      'primaryColor': '#B2C3',
+      'primaryTextColor': '#B92',
+      'primaryBorderColor': '#7c2',
+      'lineColor': '#F8B229'
+    }
+  }
+}%%
 classDiagram
     %% Protocol
     class ConfigurableReference {
@@ -697,12 +786,27 @@ classDiagram
 This class diagram demonstrates how custom iterators are implemented for `CGPoint`, `CGSize`, and `CGRect`, enabling them to conform to `Sequence` and various literal protocols.
 
 ```mermaid
+
 ---
+title: "Core Graphics Extensions and Iterators"
 config:
   layout: elk
   look: handDrawn
-  theme: dark
+  theme: base
 ---
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%{
+  init: {
+    "classDiagram": { "htmlLabels": false },
+    'fontFamily': 'Fantasy',
+    'themeVariables': {
+      'primaryColor': '#B2C3',
+      'primaryTextColor': '#B92',
+      'primaryBorderColor': '#7c2',
+      'lineColor': '#F8B229'
+    }
+  }
+}%%
 classDiagram
     %% Core Graphics Structures
     class CGPoint {
@@ -751,12 +855,27 @@ classDiagram
 This diagram shows the class hierarchy and composition of `CAMetal2DView` and its inner class `MetalState`.
 
 ```mermaid
+
 ---
+title: "CAMetal2DView Class"
 config:
   layout: elk
   look: handDrawn
-  theme: dark
+  theme: base
 ---
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%{
+  init: {
+    "classDiagram": { "htmlLabels": false },
+    'fontFamily': 'Fantasy',
+    'themeVariables': {
+      'primaryColor': '#B2C3',
+      'primaryTextColor': '#B92',
+      'primaryBorderColor': '#7c2',
+      'lineColor': '#F8B229'
+    }
+  }
+}%%
 classDiagram
     %% Base Class
     class CAMetal2DView {
@@ -825,12 +944,27 @@ classDiagram
 This diagram shows the class hierarchy and composition of `CAMetal2DView` and its inner class `MetalState`.
 
 ```mermaid
+
 ---
+title: "Class Diagram of `CAMetal2DView` and `MetalState`"
 config:
   layout: elk
   look: handDrawn
-  theme: dark
+  theme: base
 ---
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%{
+  init: {
+    "classDiagram": { "htmlLabels": false },
+    'fontFamily': 'Fantasy',
+    'themeVariables': {
+      'primaryColor': '#B2C3',
+      'primaryTextColor': '#B92',
+      'primaryBorderColor': '#7c2',
+      'lineColor': '#F8B229'
+    }
+  }
+}%%
 classDiagram
     %% Platform-Specific Classes
     class CAMetal2DView {
@@ -883,11 +1017,25 @@ This diagram highlights how protocols and extensions are used to enhance functio
 
 ```mermaid
 ---
+title: "Code Architecture Emphasizing Protocols and Extensions"
 config:
   layout: elk
   look: handDrawn
-  theme: dark
+  theme: base
 ---
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%{
+  init: {
+    "classDiagram": { "htmlLabels": false },
+    'fontFamily': 'Fantasy',
+    'themeVariables': {
+      'primaryColor': '#B2C3',
+      'primaryTextColor': '#B92',
+      'primaryBorderColor': '#7c2',
+      'lineColor': '#F8B229'
+    }
+  }
+}%%
 classDiagram
     class ConfigurableReference {
         <<protocol>>
@@ -930,11 +1078,25 @@ This diagram goes deeper into how the `FrameTimer`, shaders, and rendering pipel
 
 ```mermaid
 ---
+title: "Expanded Class Diagram with `FrameTimer` and Rendering Pipeline"
 config:
   layout: elk
   look: handDrawn
-  theme: dark
+  theme: base
 ---
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%{
+  init: {
+    "classDiagram": { "htmlLabels": false },
+    'fontFamily': 'Fantasy',
+    'themeVariables': {
+      'primaryColor': '#B2C3',
+      'primaryTextColor': '#B92',
+      'primaryBorderColor': '#7c2',
+      'lineColor': '#F8B229'
+    }
+  }
+}%%
 classDiagram
     class CAMetal2DView {
         +state: MetalState
@@ -1194,11 +1356,25 @@ This class diagram illustrates the `ShaderVertexFor2DView` struct and its role i
 
 ```mermaid
 ---
+title: "Shader Structures and Render Pipeline"
 config:
   layout: elk
   look: handDrawn
-  theme: dark
+  theme: base
 ---
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%{
+  init: {
+    "classDiagram": { "htmlLabels": false },
+    'fontFamily': 'Fantasy',
+    'themeVariables': {
+      'primaryColor': '#B2C3',
+      'primaryTextColor': '#B92',
+      'primaryBorderColor': '#7c2',
+      'lineColor': '#F8B229'
+    }
+  }
+}%%
 classDiagram
     class ShaderVertexFor2DView {
         +position: SIMD4<Float>
@@ -1436,6 +1612,26 @@ classDef OtherCommandOperators fill:#2F23, stroke:#333, stroke-width:1px
 This diagram illustrates how the `MetalState` class manages thread safety and synchronization using a lock when accessing the `timer` property.
 
 ```mermaid
+---
+title: "Thread Safety and Synchronization"
+config:
+  layout: elk
+  look: handDrawn
+  theme: base
+---
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%{
+  init: {
+    "classDiagram": { "htmlLabels": false },
+    'fontFamily': 'Fantasy',
+    'themeVariables': {
+      'primaryColor': '#B2C3',
+      'primaryTextColor': '#B92',
+      'primaryBorderColor': '#7c2',
+      'lineColor': '#F8B229'
+    }
+  }
+}%%
 classDiagram
     class MetalState {
         -lock: NSLock
