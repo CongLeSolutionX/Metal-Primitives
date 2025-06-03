@@ -56,12 +56,37 @@ This diagram provides an overview of the entire app's architecture, highlighting
 
 ```mermaid
 ---
+title: "High-Level Architecture Diagram"
+author: "Cong Le"
+version: "1.0"
+license(s): "MIT, CC BY-SA 4.0"
+copyright: "Copyright (c) 2025 Cong Le. All Rights Reserved."
 config:
   layout: elk
-  look: handDrawn
   theme: dark
+  look: handDrawn
 ---
-graph TD
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%%%%%%% Available curve styles include the following keywords:
+%% basis, bumpX, bumpY, cardinal, catmullRom, linear, monotoneX, monotoneY, natural, step, stepAfter, stepBefore.
+%%{
+  init: {
+    'securityLevel': 'loose',
+    'flowchart': { 'htmlLabels': true, 'curve': 'basis' },
+    'fontFamily': 'Comic Sans MS, cursive, sans-serif',
+    'themeVariables': {
+      'primaryColor': '#F3E333',
+      'primaryTextColor': '#145A32',
+      'lineColor': '#F8B229',
+      'primaryBorderColor': '#27AE60',
+      'secondaryColor': '#EBDEF0',
+      'secondaryTextColor': '#6C3483',
+      'secondaryBorderColor': '#A569BD',
+      'fontSize': '15px'
+    }
+  }
+}%%
+flowchart LR
     %% Define styles
     classDef iOS fill:#43F6,stroke:#4285F4
     classDef macOS fill:#F4F6,stroke:#34A853
@@ -76,7 +101,7 @@ graph TD
 
     %% iOS Views
     subgraph iOS Views
-        direction TB
+	direction LR
         C1[ObjCMetalPlainViewControllerRepresentable]:::iOS
         C2[MetalTexturingViewRepresentable]:::iOS
         C3[MetalLightingViewRepresentable]:::iOS
@@ -90,7 +115,7 @@ graph TD
 
     %% macOS Views
     subgraph macOS Views
-        direction TB
+        direction LR
         D1[MetalTexturingViewRepresentable]:::macOS
         D2[MetalLightingViewRepresentable]:::macOS
         D3[Metal3DViewRepresentable]:::macOS
@@ -389,11 +414,36 @@ This flowchart demonstrates how the code handles platform-specific view creation
 
 ```mermaid
 ---
+title: "Platform-Specific View Creation"
+author: "Cong Le"
+version: "1.0"
+license(s): "MIT, CC BY-SA 4.0"
+copyright: "Copyright (c) 2025 Cong Le. All Rights Reserved."
 config:
   layout: elk
-  look: handDrawn
   theme: dark
+  look: handDrawn
 ---
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%%%%%%% Available curve styles include the following keywords:
+%% basis, bumpX, bumpY, cardinal, catmullRom, linear, monotoneX, monotoneY, natural, step, stepAfter, stepBefore.
+%%{
+  init: {
+    'securityLevel': 'loose',
+    'flowchart': { 'htmlLabels': true, 'curve': 'basis' },
+    'fontFamily': 'Comic Sans MS, cursive, sans-serif',
+    'themeVariables': {
+      'primaryColor': '#F3E333',
+      'primaryTextColor': '#145A32',
+      'lineColor': '#F8B229',
+      'primaryBorderColor': '#27AE60',
+      'secondaryColor': '#EBDEF0',
+      'secondaryTextColor': '#6C3483',
+      'secondaryBorderColor': '#A569BD',
+      'fontSize': '15px'
+    }
+  }
+}%%
 flowchart TD
     %% Define styles
     classDef ProcessStep fill:#F7E6,stroke:#FBBC05
@@ -491,11 +541,36 @@ This flowchart outlines the steps involved in the `CAMetalPlainView`'s rendering
 
 ```mermaid
 ---
+title: "Metal Rendering Process"
+author: "Cong Le"
+version: "1.0"
+license(s): "MIT, CC BY-SA 4.0"
+copyright: "Copyright (c) 2025 Cong Le. All Rights Reserved."
 config:
   layout: elk
-  look: handDrawn
   theme: dark
+  look: handDrawn
 ---
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%%%%%%% Available curve styles include the following keywords:
+%% basis, bumpX, bumpY, cardinal, catmullRom, linear, monotoneX, monotoneY, natural, step, stepAfter, stepBefore.
+%%{
+  init: {
+    'securityLevel': 'loose',
+    'flowchart': { 'htmlLabels': true, 'curve': 'basis' },
+    'fontFamily': 'Comic Sans MS, cursive, sans-serif',
+    'themeVariables': {
+      'primaryColor': '#F3E333',
+      'primaryTextColor': '#145A32',
+      'lineColor': '#F8B229',
+      'primaryBorderColor': '#27AE60',
+      'secondaryColor': '#EBDEF0',
+      'secondaryTextColor': '#6C3483',
+      'secondaryBorderColor': '#A569BD',
+      'fontSize': '15px'
+    }
+  }
+}%%
 flowchart TD
     %% Define styles
     classDef ProcessStep fill:#E6F4,stroke:#34A853
@@ -945,11 +1020,36 @@ This flowchart shows the conditional compilation and platform-specific implement
 
 ```mermaid
 ---
+title: "Platform-Specific Implementation"
+author: "Cong Le"
+version: "1.0"
+license(s): "MIT, CC BY-SA 4.0"
+copyright: "Copyright (c) 2025 Cong Le. All Rights Reserved."
 config:
   layout: elk
-  look: handDrawn
   theme: dark
+  look: handDrawn
 ---
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%%%%%%% Available curve styles include the following keywords:
+%% basis, bumpX, bumpY, cardinal, catmullRom, linear, monotoneX, monotoneY, natural, step, stepAfter, stepBefore.
+%%{
+  init: {
+    'securityLevel': 'loose',
+    'flowchart': { 'htmlLabels': true, 'curve': 'basis' },
+    'fontFamily': 'Comic Sans MS, cursive, sans-serif',
+    'themeVariables': {
+      'primaryColor': '#F3E333',
+      'primaryTextColor': '#145A32',
+      'lineColor': '#F8B229',
+      'primaryBorderColor': '#27AE60',
+      'secondaryColor': '#EBDEF0',
+      'secondaryTextColor': '#6C3483',
+      'secondaryBorderColor': '#A569BD',
+      'fontSize': '15px'
+    }
+  }
+}%%
 flowchart TD
     Start([Start])
     Start --> CheckPlatform{Is Platform iOS?}
@@ -1029,11 +1129,36 @@ This flowchart details the steps taken within the `draw(now: frame:)` method dur
 
 ```mermaid
 ---
+title: "CAMetal2DView Draw Method"
+author: "Cong Le"
+version: "1.0"
+license(s): "MIT, CC BY-SA 4.0"
+copyright: "Copyright (c) 2025 Cong Le. All Rights Reserved."
 config:
   layout: elk
-  look: handDrawn
   theme: dark
+  look: handDrawn
 ---
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%%%%%%% Available curve styles include the following keywords:
+%% basis, bumpX, bumpY, cardinal, catmullRom, linear, monotoneX, monotoneY, natural, step, stepAfter, stepBefore.
+%%{
+  init: {
+    'securityLevel': 'loose',
+    'flowchart': { 'htmlLabels': true, 'curve': 'basis' },
+    'fontFamily': 'Comic Sans MS, cursive, sans-serif',
+    'themeVariables': {
+      'primaryColor': '#F3E333',
+      'primaryTextColor': '#145A32',
+      'lineColor': '#F8B229',
+      'primaryBorderColor': '#27AE60',
+      'secondaryColor': '#EBDEF0',
+      'secondaryTextColor': '#6C3483',
+      'secondaryBorderColor': '#A569BD',
+      'fontSize': '15px'
+    }
+  }
+}%%
 flowchart TD
     %% Define styles
     classDef EndOfDrawMethod fill:#64EA,stroke:#34A853
@@ -1153,11 +1278,36 @@ This diagram shows how the vertex data is set up and supplied to the vertex shad
 
 ```mermaid
 ---
+title: "Data Flow Diagram of Vertex Data Setup"
+author: "Cong Le"
+version: "1.0"
+license(s): "MIT, CC BY-SA 4.0"
+copyright: "Copyright (c) 2025 Cong Le. All Rights Reserved."
 config:
   layout: elk
-  look: handDrawn
   theme: dark
+  look: handDrawn
 ---
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%%%%%%% Available curve styles include the following keywords:
+%% basis, bumpX, bumpY, cardinal, catmullRom, linear, monotoneX, monotoneY, natural, step, stepAfter, stepBefore.
+%%{
+  init: {
+    'securityLevel': 'loose',
+    'flowchart': { 'htmlLabels': true, 'curve': 'basis' },
+    'fontFamily': 'Comic Sans MS, cursive, sans-serif',
+    'themeVariables': {
+      'primaryColor': '#F3E333',
+      'primaryTextColor': '#145A32',
+      'lineColor': '#F8B229',
+      'primaryBorderColor': '#27AE60',
+      'secondaryColor': '#EBDEF0',
+      'secondaryTextColor': '#6C3483',
+      'secondaryBorderColor': '#A569BD',
+      'fontSize': '15px'
+    }
+  }
+}%%
 flowchart LR
     Start[Start_Initialization]
     --> CreateVertices[Create Vertices Array]
@@ -1191,11 +1341,36 @@ This diagram shows the steps involved in initializing the `MetalState` object.
 
 ```mermaid
 ---
+title: "Activity Diagram of `MetalState` Initialization"
+author: "Cong Le"
+version: "1.0"
+license(s): "MIT, CC BY-SA 4.0"
+copyright: "Copyright (c) 2025 Cong Le. All Rights Reserved."
 config:
   layout: elk
-  look: handDrawn
   theme: dark
+  look: handDrawn
 ---
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%%%%%%% Available curve styles include the following keywords:
+%% basis, bumpX, bumpY, cardinal, catmullRom, linear, monotoneX, monotoneY, natural, step, stepAfter, stepBefore.
+%%{
+  init: {
+    'securityLevel': 'loose',
+    'flowchart': { 'htmlLabels': true, 'curve': 'basis' },
+    'fontFamily': 'Comic Sans MS, cursive, sans-serif',
+    'themeVariables': {
+      'primaryColor': '#F3E333',
+      'primaryTextColor': '#145A32',
+      'lineColor': '#F8B229',
+      'primaryBorderColor': '#27AE60',
+      'secondaryColor': '#EBDEF0',
+      'secondaryTextColor': '#6C3483',
+      'secondaryBorderColor': '#A569BD',
+      'fontSize': '15px'
+    }
+  }
+}%%
 flowchart TD
 %%%%%% Define styles
 %% Define style for crtitical points on the flowchart
@@ -1300,9 +1475,6 @@ The provided diagrams offer a comprehensive visual representation of the Metal P
 - The importance of thread safety and synchronization in managing rendering loops and state.
 
 These visual aids serve as valuable references for developers looking to explore or extend the functionalities of the app, providing insights into best practices for cross-platform Metal rendering applications.
-
-
----
 
 
 ---
