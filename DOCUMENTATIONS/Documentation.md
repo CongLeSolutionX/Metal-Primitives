@@ -1357,17 +1357,20 @@ sequenceDiagram
     Timer-->>View: Callback on each frame
 
     Note over View: Rendering Loop
-    loop Every Frame
-        Timer-->>+View: draw(now, frame)
-        View->>+Layer: Get next drawable
-        View->>State: Create command buffer
-        View->>State: Create render pass descriptor
-        View->>State: Create render command encoder
-        View->>State: Encode drawing commands
-        View->>State: End encoding
-        View->>State: Present drawable
-        View->>State: Commit command buffer
-    end
+
+	rect rgb(200, 15, 255, 0.1)
+    	loop Every Frame
+        	Timer-->>+View: draw(now, frame)
+        	View->>+Layer: Get next drawable
+        	View->>State: Create command buffer
+        	View->>State: Create render pass descriptor
+        	View->>State: Create render command encoder
+        	View->>State: Encode drawing commands
+        	View->>State: End encoding
+        	View->>State: Present drawable
+        	View->>State: Commit command buffer
+    	end
+	end
 ```
 
 ---
