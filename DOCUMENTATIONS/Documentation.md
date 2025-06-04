@@ -1340,11 +1340,14 @@ config:
 sequenceDiagram
     autonumber
     participant View as CAMetal2DView
-    participant State as MetalState
-    participant Layer as CAMetalLayer
-    participant Timer as FrameTimer
-    participant Device as MTLDevice
-    participant Queue as MTLCommandQueue
+
+	box rgb(202, 12, 22, 0.1) The Metal System
+    	participant State as MetalState
+    	participant Layer as CAMetalLayer
+    	participant Timer as FrameTimer
+    	participant Device as MTLDevice
+    	participant Queue as MTLCommandQueue
+	end
 
     Note over View: Initialization
     View->>+State: Initialize MetalState
