@@ -284,11 +284,34 @@ This sequence diagram illustrates the flow of control during the app's initializ
 
 ```mermaid
 ---
+title: "App Initialization Sequence"
+author: "Cong Le"
+version: "0.1"
+license(s): "MIT, CC BY 4.0"
+copyright: "Copyright (c) 2025 Cong Le. All Rights Reserved."
 config:
   layout: elk
-  look: handDrawn
-  theme: dark
+  theme: base
 ---
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%{
+  init: {
+    'sequence': { 'mirrorActors': true, 'showSequenceNumbers': true, 'actorMargin': 50 },
+    'fontFamily': 'Monaco',
+    'themeVariables': {
+      'primaryColor': '#2BB8',
+      'primaryBorderColor': '#7C0000',
+      'lineColor': '#F8B229',
+      'secondaryColor': '#6122',
+      'tertiaryColor': '#fff',
+      'fontSize': '15px',
+      'textColor': '#F8B229',
+      'actorTextColor': '#E2E',
+      'stroke':'#033',
+      'stroke-width': '0.2px'
+    }
+  }
+}%%
 sequenceDiagram
     autonumber
     participant App as MetalPrimitivesApp
@@ -328,7 +351,6 @@ sequenceDiagram
 This diagram shows the relationship between the Metal views and their respective renderers.
 
 ```mermaid
-
 ---
 title: "Metal Views and Renderers"
 config:
@@ -417,11 +439,34 @@ The following sequence diagram demonstrates how the Metal views are created and 
 
 ```mermaid
 ---
+title: "Metal View Rendering Flow Sequence"
+author: "Cong Le"
+version: "0.1"
+license(s): "MIT, CC BY 4.0"
+copyright: "Copyright (c) 2025 Cong Le. All Rights Reserved."
 config:
   layout: elk
-  look: handDrawn
-  theme: dark
+  theme: base
 ---
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%{
+  init: {
+    'sequence': { 'mirrorActors': true, 'showSequenceNumbers': true, 'actorMargin': 50 },
+    'fontFamily': 'Monaco',
+    'themeVariables': {
+      'primaryColor': '#2BB8',
+      'primaryBorderColor': '#7C0000',
+      'lineColor': '#F8B229',
+      'secondaryColor': '#6122',
+      'tertiaryColor': '#fff',
+      'fontSize': '15px',
+      'textColor': '#F8B229',
+      'actorTextColor': '#E2E',
+      'stroke':'#033',
+      'stroke-width': '0.2px'
+    }
+  }
+}%%
 sequenceDiagram
     autonumber
     participant SwiftUI as SwiftUI View
@@ -524,7 +569,6 @@ flowchart TD
 The class diagram below shows how extensions and utilities are designed to add functionality to existing structures like `CGPoint`, `CGSize`, and `CGRect`.
 
 ```mermaid
-
 ---
 title: "Extensions and Utilities Relationships"
 config:
@@ -665,7 +709,6 @@ flowchart TD
 This class diagram shows the hierarchy and relationships between custom Metal views and their UIKit/AppKit counterparts, emphasizing the shared logic across platforms.
 
 ```mermaid
-
 ---
 title: "Metal View Hierarchy and Custom Views"
 config:
@@ -735,7 +778,6 @@ classDiagram
 The class diagram below illustrates how protocols and extensions are used to provide configurable references across different types, enhancing code reusability and readability.
 
 ```mermaid
-
 ---
 title: "Configurable References and Protocol Extensions"
 config:
@@ -786,7 +828,6 @@ classDiagram
 This class diagram demonstrates how custom iterators are implemented for `CGPoint`, `CGSize`, and `CGRect`, enabling them to conform to `Sequence` and various literal protocols.
 
 ```mermaid
-
 ---
 title: "Core Graphics Extensions and Iterators"
 config:
@@ -855,7 +896,6 @@ classDiagram
 This diagram shows the class hierarchy and composition of `CAMetal2DView` and its inner class `MetalState`.
 
 ```mermaid
-
 ---
 title: "CAMetal2DView Class"
 config:
@@ -944,7 +984,6 @@ classDiagram
 This diagram shows the class hierarchy and composition of `CAMetal2DView` and its inner class `MetalState`.
 
 ```mermaid
-
 ---
 title: "Class Diagram of `CAMetal2DView` and `MetalState`"
 config:
@@ -1151,11 +1190,36 @@ This diagram highlights how `CAMetal2DView` handles cross-platform support using
 
 ```mermaid
 ---
+title: "High-Level Overview of Cross-Platform Support"
+author: "Cong Le"
+version: "1.0"
+license(s): "MIT, CC BY-SA 4.0"
+copyright: "Copyright (c) 2025 Cong Le. All Rights Reserved."
 config:
   layout: elk
-  look: handDrawn
   theme: dark
+  look: handDrawn
 ---
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%%%%%%% Available curve styles include the following keywords:
+%% basis, bumpX, bumpY, cardinal, catmullRom, linear, monotoneX, monotoneY, natural, step, stepAfter, stepBefore.
+%%{
+  init: {
+    'securityLevel': 'loose',
+    'graph': { 'htmlLabels': true, 'curve': 'basis' },
+    'fontFamily': 'Comic Sans MS, cursive, sans-serif',
+    'themeVariables': {
+      'primaryColor': '#F3E333',
+      'primaryTextColor': '#145A32',
+      'lineColor': '#F8B229',
+      'primaryBorderColor': '#27AE60',
+      'secondaryColor': '#EBDEF0',
+      'secondaryTextColor': '#6C3483',
+      'secondaryBorderColor': '#A569BD',
+      'fontSize': '15px'
+    }
+  }
+}%%
 graph TD
     CAMetal2DView
     CAMetal2DView -->|"#if os(macOS)"| CAMetal2DViewMac
@@ -1245,11 +1309,34 @@ This diagram shows the sequence of events during initialization and the renderin
 
 ```mermaid
 ---
+title: "CAMetal2DView Initialization and Rendering Sequence"
+author: "Cong Le"
+version: "0.1"
+license(s): "MIT, CC BY 4.0"
+copyright: "Copyright (c) 2025 Cong Le. All Rights Reserved."
 config:
   layout: elk
-  look: handDrawn
-  theme: dark
+  theme: base
 ---
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%{
+  init: {
+    'sequence': { 'mirrorActors': true, 'showSequenceNumbers': true, 'actorMargin': 50 },
+    'fontFamily': 'Monaco',
+    'themeVariables': {
+      'primaryColor': '#2BB8',
+      'primaryBorderColor': '#7C0000',
+      'lineColor': '#F8B229',
+      'secondaryColor': '#6122',
+      'tertiaryColor': '#fff',
+      'fontSize': '15px',
+      'textColor': '#F8B229',
+      'actorTextColor': '#E2E',
+      'stroke':'#033',
+      'stroke-width': '0.2px'
+    }
+  }
+}%%
 sequenceDiagram
     autonumber
     participant View as CAMetal2DView
@@ -1412,11 +1499,34 @@ This sequence diagram illustrates how the `FrameTimer` is used to synchronize re
 
 ```mermaid
 ---
+title: "Timing and Rendering Synchronization with `FrameTimer`"
+author: "Cong Le"
+version: "0.1"
+license(s): "MIT, CC BY 4.0"
+copyright: "Copyright (c) 2025 Cong Le. All Rights Reserved."
 config:
   layout: elk
-  look: handDrawn
-  theme: dark
+  theme: base
 ---
+%%%%%%%% Mermaid version v11.4.1-b.14
+%%{
+  init: {
+    'sequence': { 'mirrorActors': true, 'showSequenceNumbers': true, 'actorMargin': 50 },
+    'fontFamily': 'Monaco',
+    'themeVariables': {
+      'primaryColor': '#2BB8',
+      'primaryBorderColor': '#7C0000',
+      'lineColor': '#F8B229',
+      'secondaryColor': '#6122',
+      'tertiaryColor': '#fff',
+      'fontSize': '15px',
+      'textColor': '#F8B229',
+      'actorTextColor': '#E2E',
+      'stroke':'#033',
+      'stroke-width': '0.2px'
+    }
+  }
+}%%
 sequenceDiagram
     participant View as CAMetal2DView
     participant State as MetalState
