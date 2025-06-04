@@ -472,7 +472,7 @@ sequenceDiagram
     participant SwiftUI as SwiftUI View
     participant Representable as UIViewRepresentable
     participant MetalView as CAMetal3DView / MTKView
-    participant Renderer as Renderer (Coordinator)
+    participant Renderer as Renderer <br/>(Coordinator)
     participant Device as MTLDevice
     participant Queue as MTLCommandQueue
 
