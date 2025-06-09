@@ -152,26 +152,23 @@ This class diagram illustrates the overall structure of the app, focusing on the
 ```mermaid
 ---
 title: "App Structure Overview"
-author: "Cong Le"
-version: "1.0"
-license(s): "MIT, CC BY 4.0"
-copyright: "Copyright (c) 2025 Cong Le. All Rights Reserved."
 config:
+  layout: elk
   look: handDrawn
   theme: base
 ---
 %%%%%%%% Mermaid version v11.4.1-b.14
+%%%%%%%% Available curve styles include the following keywords:
+%% basis, bumpX, bumpY, cardinal, catmullRom, linear, monotoneX, monotoneY, natural, step, stepAfter, stepBefore.
 %%{
   init: {
-    'classDiagram': { 'htmlLabels': false},
-    'fontFamily': 'Monaco',
+    "classDiagram": { "htmlLabels": false },
+    'fontFamily': 'Fantasy',
     'themeVariables': {
-      'primaryColor': '#BB28',
-      'primaryTextColor': '#FFF',
-      'lineColor': '#F8B229',
-      'primaryBorderColor': '#7C3',
-      'secondaryColor': '#DD15',
-      'fontSize': '15px'
+      'primaryColor': '#B2C3',
+      'primaryTextColor': '#B92',
+      'primaryBorderColor': '#7c2',
+      'lineColor': '#F8B229'
     }
   }
 }%%
@@ -270,26 +267,23 @@ This diagram shows the relationship between the Metal views and their respective
 ```mermaid
 ---
 title: "Metal Views and Renderers Class Diagram"
-author: "Cong Le"
-version: "1.0"
-license(s): "MIT, CC BY 4.0"
-copyright: "Copyright (c) 2025 Cong Le. All Rights Reserved."
 config:
+  layout: elk
   look: handDrawn
   theme: base
 ---
 %%%%%%%% Mermaid version v11.4.1-b.14
+%%%%%%%% Available curve styles include the following keywords:
+%% basis, bumpX, bumpY, cardinal, catmullRom, linear, monotoneX, monotoneY, natural, step, stepAfter, stepBefore.
 %%{
   init: {
-    'classDiagram': { 'htmlLabels': false},
-    'fontFamily': 'Monaco',
+    "classDiagram": { "htmlLabels": false },
+    'fontFamily': 'Fantasy',
     'themeVariables': {
-      'primaryColor': '#BB28',
-      'primaryTextColor': '#FFF',
-      'lineColor': '#F8B229',
-      'primaryBorderColor': '#7C3',
-      'secondaryColor': '#DD15',
-      'fontSize': '15px'
+      'primaryColor': '#B2C3',
+      'primaryTextColor': '#B92',
+      'primaryBorderColor': '#7c2',
+      'lineColor': '#F8B229'
     }
   }
 }%%
@@ -455,8 +449,6 @@ Link_to_my_profile{{"<a href='https://github.com/CongLeSolutionX' target='_blank
 Closing_quote ~~~ My_Meme
 My_Meme animatingEdge@--> Link_to_my_profile
 animatingEdge@{ animate: true }
-
-
 
 ```
 
