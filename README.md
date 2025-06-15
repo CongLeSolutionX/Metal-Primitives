@@ -405,6 +405,13 @@ We welcome contributions! If you'd like to improve the project, please:
 
 ## 🚀 Project Current Activities
 
+<div align="center">
+	<img alt="Project Current Activities Top" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExanNsZjI5ejZkMnJjejB4Mzl0OXlvNGp4ZG8wNXMyampqNGhuNmhoOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3d0PahT093UPe/giphy.gif"/>
+	<br/>
+	<em>gif image is provided by <a href="https://giphy.com">Giphy</a></em>
+</div>
+
+
 <div align="left"><a name="project-current-activities"></a>
 
 <details open>
@@ -424,6 +431,12 @@ We welcome contributions! If you'd like to improve the project, please:
 
 </details>
 
+</div>
+
+<div align="center">
+	<img alt="Project Current Activities Bottom" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGFxazVwZWpubXE5Z2djcTJkZjRzMDRsZTN3OXlra3R6NWM3dHE0ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cNULFBSoiU9XO/giphy.gif"/>
+	<br/>
+	<em>gif image is provided by <a href="https://giphy.com">Giphy</a></em>
 </div>
 
 
