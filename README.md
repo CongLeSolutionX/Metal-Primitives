@@ -483,7 +483,7 @@ We welcome contributions! If you'd like to improve the project, please:
 
 ```mermaid
 ---
-title: "CongLeSolutionX"
+title: "C<char>o&#770;</char>ngL<char>e&#770;</char>SolutionX"
 author: "Cong Le"
 version: "1.0"
 license(s): "MIT, CC BY 4.0"
