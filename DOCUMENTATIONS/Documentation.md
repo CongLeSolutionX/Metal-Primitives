@@ -15,7 +15,8 @@ created: 2024-12-20 04:58:55
   <br/>
   I want to extend my genuine apologies to the creators of the original material.<br/>
   Their work was the direct inspiration for this project, and I adapted it without first reaching out.<br/>
-  My intent comes from a place of deep respect, and I hope this is received in the spirit of homage.
+  My intent comes from a place of deep respect, and I hope this is received in the spirit of homage.<br/>
+  🙏🏼🙏🏼🙏🏼🙏🏼
   </blockquote>
 </div>
 

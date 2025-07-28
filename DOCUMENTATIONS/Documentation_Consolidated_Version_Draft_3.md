@@ -5,7 +5,6 @@ created: 2025-02-24 05:31:26
 
 ---
 
-
 <div align="center">
   <blockquote>
   As a visual learner student, I created these personal study notes from the cited source(s) to aid my understanding.<br/>
@@ -17,9 +16,11 @@ created: 2025-02-24 05:31:26
   <br/>
   I want to extend my genuine apologies to the creators of the original material.<br/>
   Their work was the direct inspiration for this project, and I adapted it without first reaching out.<br/>
-  My intent comes from a place of deep respect, and I hope this is received in the spirit of homage.
+  My intent comes from a place of deep respect, and I hope this is received in the spirit of homage.<br/>
+  🙏🏼🙏🏼🙏🏼🙏🏼
   </blockquote>
 </div>
+
 
 
 ----
