@@ -1,28 +1,32 @@
 ---
 created: 2025-02-24 05:31:26
-author: Cong Le
-version: "1.0"
-license(s): MIT, CC BY 4.0
-copyright: Copyright (c) 2025 Cong Le. All Rights Reserved.
 ---
 
 
-> ⚠️🏗️🚧🦺🧱🪵🪨🪚🛠️👷
-> 
-> This is a working draft in progress
-> 
-> ![Loading...](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjllNjMyMGg2Mnl5cDJjZ3F3MTN3bHhrdHR4M3drYXNsbWQ3cTF1ZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/FaAxdPWZ7HKGmlnku7/giphy.gif)
-> 
-> ⚠️🏗️🚧🦺🧱🪵🪨🪚🛠️👷
 
+---
+
+<div align="center">
+  <blockquote>
+  As a visual learner student, I created these personal study notes from the cited source(s) to aid my understanding.<br/>
+  While my firm intention is to provide full credit, the blended format of notes and diagrams may sometimes obscure the original source, for which I apologize.<br/>
+  I am committed to making corrections and welcome any feedback.<br/>
+  This is a non-commercial project for my humble educational purposes only since the start.<br/>
+  My goal is to share my perspective and contribute to the great work already being done.
+  <br/>
+  <br/>
+  I want to extend my genuine apologies to the creators of the original material.<br/>
+  Their work was the direct inspiration for this project, and I adapted it without first reaching out.<br/>
+  My intent comes from a place of deep respect, and I hope this is received in the spirit of homage.
+  </blockquote>
+</div>
 
 ----
 
 
 # Documentation - A Consolidated version - Draft 1
-> This content is dual-licensed under your choice of the following licenses:
-> 1.  **MIT License:** For the code implementations in Swift and Mermaid provided in this document.
-> 2.  **Creative Commons Attribution 4.0 International License (CC BY 4.0):** For all other content, including the text, explanations, and the Mermaid diagrams and illustrations.
+
+
 
 ---
 
@@ -787,48 +791,3 @@ componentDiagram
 *   **Platform-Specific Logic:**  Indicates that `CAMetalView` classes contain platform-specific logic, implemented through these conditional compilation blocks.
 ---
 
-
-
-```mermaid
----
-title: "CongLeSolutionX"
-author: "Cong Le"
-version: "1.0"
-license(s): "MIT, CC BY 4.0"
-copyright: "Copyright (c) 2025 Cong Le. All Rights Reserved."
-config:
-  theme: base
----
-%%%%%%%% Mermaid version v11.4.1-b.14
-%%{
-  init: {
-    'flowchart': { 'htmlLabels': false },
-    'fontFamily': 'Brush Script MT',
-    'themeVariables': {
-      'primaryColor': '#fc82',
-      'primaryTextColor': '#F8B229',
-      'primaryBorderColor': '#27AE60',
-      'secondaryColor': '#81c784',
-      'secondaryTextColor': '#6C3483',
-      'lineColor': '#F8B229',
-      'fontSize': '20px'
-    }
-  }
-}%%
-flowchart LR
-    My_Meme@{ img: "https://github.com/CongLeSolutionX/MY_GRAPHIC_ASSETS/blob/Designing_graphic_syntax/MY_MEME_ICONS/Orange-Cloud-Search-Icon-Base-Color-Black-1024x1024.png?raw=true", label: "Ăn uống gì chưa ngừi đẹp?", pos: "b", w: 200, h: 150, constraint: "on" }
-
-    Closing_quote@{ shape: braces, label: "Math and code work together to bring interactive art to life!" }
-
-My_Meme ~~~ Closing_quote
-
-```
-
-
----
-**Licenses:**
-
-- **MIT License:**  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE) - Full text in [LICENSE](LICENSE) file.
-- **Creative Commons Attribution 4.0 International:** [![License: CC BY 4.0](https://licensebuttons.net/l/by/4.0/88x31.png)](LICENSE-CC-BY) - Legal details in [LICENSE-CC-BY](LICENSE-CC-BY) and at [Creative Commons official site](http://creativecommons.org/licenses/by/4.0/).
-
-----
